@@ -1,0 +1,31 @@
+[user]
+    name = Ivan Wills
+    email = Ivan.Wills@optus.com.au
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    log = auto
+    ui = auto
+[alias]
+    ci = commit
+    s = status
+    st = status
+    br = branch
+    co = checkout
+    di = diff --ignore-all-space
+    who = shortlog -s --
+    cat = show
+    lg = log --decorate --graph --name-status
+    lp = log -p
+    lgp = log --format=format:'	%Cred%h%Creset %s %Cgreen%an %Cblue%d' --graph
+    logd = log --decorate --graph
+    log1 = log --pretty=oneline
+    logl = log --decorate --name-status
+    logme = log --author=ivan.wills
+#[receive]
+#    denyCurrentBranch = warn
+[core]
+    excludesfile = /home/dev/.gitignore
+[push]
+    default = simple

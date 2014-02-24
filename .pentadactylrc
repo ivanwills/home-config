@@ -1,0 +1,18 @@
+"1.0rc1
+
+loadplugins '\.(js|penta)$'
+group user
+set guioptions=bCrsT
+map <C-u> :viewsource<cr>
+map = +
+map <F11> :set fs<cr>
+map <A-F11> :set nofs<cr>
+map <C-m> :set guioptions+=m<cr>
+map <A-m> :set guioptions-=m<cr>
+map <C-b> :set guioptions+=B<cr>
+map <A-b> :set guioptions-=B<cr>
+map <C-t> :tabopen<cr>
+
+:autocmd LocationChange .* js modes.passAllKeys = /google\.com/.test(buffer.URL)
+
+" vim: set ft=pentadactyl:

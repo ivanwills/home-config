@@ -1,0 +1,16 @@
+*.a
+*.o
+*.py[co]
+*.so
+*.sw[nop]
+*~
+.#*
+[#]*#
+__pycache__
+bzr-orphans
+Build
+blib
+_build
+cover_db
+Debian_CPANTS.txt
+errors.err

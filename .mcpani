@@ -1,0 +1,5 @@
+local: /MyCPAN
+remote: ftp://MINICPAN
+respository: /Private
+passive: yes
+dirmode: 755

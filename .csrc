@@ -1,0 +1,67 @@
+
+<file_types>
+    <csv>
+        definite = [.](?:csv|tab)$
+    </csv>
+    <tt>
+        definite = [.]tt2?$
+        #possible
+        #none
+        #bang
+        #other_types
+    </tt>
+    <data>
+        definite = [.]dat$
+    </data>
+    <jt>
+        definite = [.](?:ftl|vm)$
+    </jt>
+    <java>
+        definite = [.](?:java)$
+    </java>
+    <jar>
+        definite = [.](?:jar|jsa|dll)$
+    </jar>
+    <min>
+        definite = [.]min[.](css|js)$
+    </min>
+    <zoo>
+        definite = [.]zoo$
+    </zoo>
+    <yaml>
+        definite = [.]ya?ml$
+    </yaml>
+    <pm>
+        definite = [.]pm$
+    </pm>
+    <groovy>
+        definite = [.]groovy$
+    </groovy>
+    <less>
+        definite = [.]less$
+    </less>
+    <scss>
+        definite = [.]scss$
+    </scss>
+    <css>
+        other_types = less
+        other_types = scss
+    </css>
+    <ignore>
+        definite = cmds
+        definite = tags
+        definite = cover_db
+        definite = [.].*[.]sw[nmopqrx]$
+        definite = [.]trash
+        definite = Debian_CPANTS.txt
+        definite = [.]class$
+        definite = [.](?:war|jar|zip|tar)$
+        definite = target/
+        definite = [.]meteor/local/
+        definite = packages/[^/]+/.build
+        definite = [.]gradle/
+    </ignore>
+    <json>
+        definite = [.]ja?son$
+    </json>
+</file_types>
