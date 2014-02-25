@@ -18,4 +18,11 @@ tmp*
 *~
 vim.sh
 temp*
+err
 errors.err
+log
+*.log
+*.autosave
+.cpr
+*.new
+vrc.yml
