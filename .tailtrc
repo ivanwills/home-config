@@ -43,6 +43,43 @@ configs:
             colour:
               - red
               - bold
+  log4j:
+    post_process:
+      - !!perl/hash:Tail::Tool::Plugin::Highlight
+        many: 1
+        post: 1
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - bold
+            enabled: 1
+            regex: !!perl/regexp (?-xism:TRACE)
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - blue
+            enabled: 1
+            regex: !!perl/regexp (?-xism:DEBUG|SLF4J)
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - green
+            enabled: 1
+            regex: !!perl/regexp (?-xism:INFO)
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - yellow
+            enabled: 1
+            regex: !!perl/regexp (?-xism:WARN(?:ING)?)
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - red
+            enabled: 1
+            regex: !!perl/regexp (?-xism:ERROR|SEVERE)
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - magenta
+              - bold
+            enabled: 1
+            regex: !!perl/regexp (?-xism:FATAL)
   liferay:
     post_process:
       - !!perl/hash:Tail::Tool::Plugin::Highlight
