@@ -26,3 +26,9 @@ log
 .cpr
 *.new
 vrc.yml
+
+target
+memberservices05-*
+*/optusmetv-content/css
+*/optusmetv-content/pcatnew
+.regen-files
