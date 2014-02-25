@@ -51,7 +51,10 @@
         definite = cmds
         definite = tags
         definite = cover_db
+        definite = errors.err
         definite = [.].*[.]sw[nmopqrx]$
+        definite = vrc[.]yml
+        definite = [.]prove
         definite = [.]trash
         definite = Debian_CPANTS.txt
         definite = [.]class$
