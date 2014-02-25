@@ -1,6 +1,6 @@
 [user]
     name = Ivan Wills
-    email = ivan.wills@gmail.com
+    email = Ivan.Wills@optus.com.au
 [color]
     diff = auto
     status = auto
@@ -38,7 +38,7 @@
 #[receive]
 #    denyCurrentBranch = warn
 [core]
-    excludesfile = /home/ivan/.gitignore
+    excludesfile = /home/dev/.gitignore
     autocrlf = input
     ignorecase = false
     editor = vim
@@ -47,4 +47,4 @@
 [merge]
     log = true
     branchdesc = true
-    ff = true
+    ff = false
