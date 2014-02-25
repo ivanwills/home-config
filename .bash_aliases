@@ -140,6 +140,7 @@ alias gitlogcount='git log | grep Author | perl -nle "(\$a) = /<([^>]+)>/; \$ENV
 
 alias hlist="hlist -e 'Build|_build|blib|META.yml|tags|.sw[pnox]\$'"
 
+alias chromium-stb='chromium-browser --disable-web-security 2> /dev/null > /dev/null'
 alias chromium-gs3='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (Linux; U; Android 4.0.4; en-au; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" 2> /dev/null > /dev/null'
 alias chromium-ip3='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16" 2> /dev/null > /dev/null'
 alias chromium-ipad='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10" 2> /dev/null > /dev/null'
