@@ -14,18 +14,37 @@
     br = branch
     co = checkout
     di = diff --ignore-all-space
-    who = shortlog -s --
-    cat = show
-    lg = log --decorate --graph --name-status
-    lp = log -p
-    lgp = log --format=format:'	%Cred%h%Creset %s %Cgreen%an %Cblue%d' --graph
-    logd = log --decorate --graph
-    log1 = log --pretty=oneline
-    logl = log --decorate --name-status
-    logme = log --author=ivan.wills
+    who     = shortlog -s --
+    cat     = show
+    lpg     = log --decorate --graph --name-status
+    lp      = log -p
+    lg      = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'
+    lgp     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph
+    lgpv    = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --name-status
+    logd    = log --decorate --graph
+    log1    = log --pretty=oneline
+    logl    = log --decorate --name-status
+    logme   = log --author=ivan.wills --author='Ivan Wills'
+    lpgme   = log --decorate --graph --name-status                                                                                   --author=ivan.wills --author='Ivan Wills'
+    lpme    = log -p                                                                                                                 --author=ivan.wills --author='Ivan Wills'
+    lgme    = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'                       --author=ivan.wills --author='Ivan Wills'
+    lgpme   = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph               --author=ivan.wills --author='Ivan Wills'
+    lgpvme  = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --name-status --author=ivan.wills --author='Ivan Wills'
+    logdme  = log --decorate --graph                                                                                                 --author=ivan.wills --author='Ivan Wills'
+    log1me  = log --pretty=oneline                                                                                                   --author=ivan.wills --author='Ivan Wills'
+    loglme  = log --decorate --name-status                                                                                           --author=ivan.wills --author='Ivan Wills'
+    forward = pull --ff -r
+    ff      = pull --ff -r
 #[receive]
 #    denyCurrentBranch = warn
 [core]
     excludesfile = /home/ivan/.gitignore
+    autocrlf = input
+    ignorecase = false
+    editor = vim
 [push]
     default = simple
+[merge]
+    log = true
+    branchdesc = true
+    ff = true
