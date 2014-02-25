@@ -1,6 +1,6 @@
 [user]
     name = Ivan Wills
-    email = Ivan.Wills@optus.com.au
+    email = ivan.wills@gmail.com
 [color]
     diff = auto
     status = auto
@@ -26,6 +26,6 @@
 #[receive]
 #    denyCurrentBranch = warn
 [core]
-    excludesfile = /home/dev/.gitignore
+    excludesfile = /home/ivan/.gitignore
 [push]
     default = simple
