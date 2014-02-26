@@ -1,0 +1,137 @@
+actualPath=/home/ivan/Pictures/Photos/2013/07/14/
+lastImageType=all images
+file1=/home/ivan/Pictures/Photos/2013/07/14/DSC_8861 (Developed in UFRaw)-DSC_8869 (Developed in UFRaw).pto
+file2=/home/ivan/Desktop/Tangalooma Pre Dawn/DSC_4223 (Developed in UFRaw)-DSC_4226 (Developed in UFRaw (3)).pto
+file3=/home/ivan/Photos/2011/12/05/DSC_3338 (Developed in UFRaw)-DSC_3339 (Developed in UFRaw).pto
+file4=/home/ivan/Photos/2011/12/05/DSC_3340 (Developed in UFRaw)-DSC_3341 (Developed in UFRaw).pto
+file5=/home/ivan/Photos/2011/07/11/DSC_1785 (Developed in UFRaw)-DSC_1814 (Developed in UFRaw).pto
+file6=
+file7=
+file8=
+file9=
+[AutoPano]
+AutoPanoCount=8
+Default=0
+[AutoPano/AutoPano_0]
+Type=1
+Description=Hugins CPFind
+Program=cpfind
+Arguments=--multirow -o %o %s
+ProgramMatcher=
+ArgumentsMatcher=
+Option=1
+[AutoPano/AutoPano_1]
+Type=1
+Description=Hugins CPFind + Celeste (slower but more accurate, no cps on clouds)
+Program=cpfind
+Arguments=--celeste --multirow -o %o %s
+ProgramMatcher=
+ArgumentsMatcher=
+Option=1
+[AutoPano/AutoPano_2]
+Type=2
+Description=Cpfind (multirow/stacked)
+Program=cpfind
+Arguments=-o %o --multirow %s
+ProgramMatcher=
+ArgumentsMatcher=
+ProgramStack=align_image_stack
+ArgumentsStack=-f %v -v -p %o %i
+Option=1
+[AutoPano/AutoPano_3]
+Type=1
+Description=Autopano-SIFT-C
+Program=autopano-noop
+Arguments=--maxmatches %p --projection %f,%v %o %i
+ProgramMatcher=
+ArgumentsMatcher=
+Option=1
+[AutoPano/AutoPano_4]
+Type=1
+Description=Panomatic
+Program=panomatic
+Arguments=-o %o %i
+ProgramMatcher=
+ArgumentsMatcher=
+Option=1
+[AutoPano/AutoPano_5]
+Type=4
+Description=Autopano-SIFT-C (multirow/stacked)
+Program=generatekeys
+Arguments=%i %k 800
+ProgramMatcher=autopano
+ArgumentsMatcher=--maxmatches %p %o %k
+ArgumentsCleanup=
+ProgramStack=align_image_stack
+ArgumentsStack=-f %v -v -p %o %i
+Option=1
+[AutoPano/AutoPano_6]
+Type=1
+Description=Align image stack
+Program=align_image_stack
+Arguments=-f %v -v -p %o %i
+ProgramMatcher=
+ArgumentsMatcher=
+Option=1
+[AutoPano/AutoPano_7]
+Type=1
+Description=Align image stack FullFrameFisheye
+Program=align_image_stack
+Arguments=-f %v -e -p %o %i
+ProgramMatcher=
+ArgumentsMatcher=
+Option=1
+[MainFrame]
+ShowStartTip=0
+width=1600
+height=811
+positionX=0
+positionY=24
+maximized=0
+[BatchList]
+ColumnWidth0=37
+ColumnWidth1=620
+ColumnWidth7=92
+ColumnWidth3=132
+ColumnWidth4=114
+ColumnWidth5=119
+[BatchFrame]
+Max=0
+Width=1451
+Height=465
+[OptimizePhotometric]
+nRandomPointsPerImage=200
+[PreviewFrame]
+width=1600
+height=798
+positionX=0
+positionY=24
+maximized=0
+isShown=0
+autoUpdate=0
+blendMode=0
+[Stitcher]
+DefaultRemapper=0
+[OptimizePhotometricPanel]
+OnlyActiveImages=1
+[OptimizePanel]
+OnlyActiveImages=1
+[CPEditorPanel]
+autoAdd=0
+autoFineTune=1
+autoEstimate=1
+[GLPreviewFrame]
+width=1600
+height=851
+positionX=0
+positionY=24
+maximized=0
+isShown=0
+blendMode=0
+OpenGLLayout=layout2|name=preview;caption=Preview;state=896;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=300;besth=200;minw=300;minh=200;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=overview;caption=Overview;state=16779260;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=300;besth=200;minw=300;minh=200;maxw=-1;maxh=-1;floatx=500;floaty=500;floatw=100;floath=100|dock_size(5,0,0)=302|dock_size(4,0,0)=302|
+overview_hidden=0
+showPreviewGrid=1
+individualDragMode=0
+guide=0
+[MaskEditorPanel]
+ShowActiveMasks=0
