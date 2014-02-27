@@ -74,11 +74,11 @@ sub main {
                 unlink $home;
             }
             elsif ( -f $home ) {
-                system "vimdiff $file $home";
+                system "vimdiff '$file' '$home'";
                 next;
             }
             else {
-                system "diffdir -c vimdiff -m $file $home";
+                system "diffdir -c vimdiff -m '$file' '$home'";
                 next;
             }
         }
@@ -87,7 +87,7 @@ sub main {
             next;
         }
 
-        `ln -s $file $home`;
+        `ln -s '$file' '$home'`;
     }
 
     return;
