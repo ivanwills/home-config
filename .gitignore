@@ -25,4 +25,6 @@ log
 *.autosave
 .cpr
 *.new
+http___
+patches/
 vrc.yml
