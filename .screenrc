@@ -30,7 +30,7 @@ pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 # set every new windows hardstatus line to somenthing descriptive
 # defhstatus "screen: ^En (^Et)"
 
-defscrollback 5000
+defscrollback 10000
 
 # don't kill window after the process died
 # zombie "^["
@@ -53,7 +53,7 @@ terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
 termcapinfo  xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
 
 # Make the output buffer large for (fast) xterms.
-termcapinfo xterm* OL=10000
+termcapinfo xterm* OL=50000
 
 # tell screen that xterm can switch to dark background and has function
 # keys.
@@ -127,22 +127,6 @@ bind 'I' login on
 bind 'O' login off
 bind '}' history
 
-#bindkey -k k0 select 0
-#bindkey -k k1 select 1
-#bindkey -k k2 select 2
-#bindkey -k k3 select 3
-#bindkey -k k4 select 4
-#bindkey -k k1 select 0
-#bindkey -k k2 select 1
-#bindkey -k k3 select 2
-#bindkey -k k4 select 3
-#bindkey -k k5 select 4
-#bindkey -k k6 select 5
-#bindkey -k k7 select 6
-#bindkey -k k8 select 7
-#bindkey -k k9 select 8
-
-
 # Yet another hack:
 # Prepend/append register [/] to the paste if ^a^] is pressed.
 # This lets me have autoindent mode in vi.
@@ -172,27 +156,34 @@ bind ^] paste [.]
 # screen -t 'logs' 1 tail -f error_log
 #
 screen -t '> cmds'	1
-screen -t '> cmds'	2
-screen -t '> code'	3
-screen -t '> code'	4
-screen -t '> code'	5
-screen -t '> psql'	6
-screen -t '> html'	7
-screen -t '> html'	8
-screen -t '> html'	9
-screen -t '> blog'	10
-screen -t '> log '	11
-screen -t '> root'	12
+#screen -t '> cmds'	2
+#screen -t '> code'	3
+#screen -t '> code'	4
+#screen -t '> code'	5
+#screen -t '> code'	6
+#screen -t '> code'	7
+#screen -t '> code'	8
+#screen -t '> code'	9
+#screen -t '> code'	10
+#screen -t '> code'	11
+#screen -t '> root'	12
+#screen -t '> code'	13
+#screen -t '> code'	14
+#screen -t '> code'	15
+#screen -t '> code'	16
+#screen -t '> code'	17
+#screen -t '> code'	18
+#screen -t '> code'	19
+#screen -t '> code'	20
+#screen -t '> code'	21
+#screen -t '> code'	22
 
 # see 'Input Translation' section for key names
-bindkey [11~ select 1
-bindkey [12~ select 2
-bindkey [13~ select 3
-bindkey [14~ select 4
-bindkey OP select 1
-bindkey OQ select 2
-bindkey OR select 3
-bindkey OS select 4
+bindkey 0   select 0
+bindkey OP  select 1
+bindkey OQ  select 2
+bindkey OR  select 3
+bindkey OS  select 4
 bindkey -k k5 select 5
 bindkey -k k6 select 6
 bindkey -k k7 select 7
@@ -201,6 +192,16 @@ bindkey -k k9 select 9
 bindkey -k k; select 10
 bindkey -k F1 select 11
 bindkey -k F2 select 12
+bindkey 3   select 13
+bindkey 4   select 14
+bindkey 5   select 15
+bindkey 6   select 16
+bindkey 7   select 17
+bindkey 8   select 18
+bindkey 9   select 19
+bindkey 0   select 20
+bindkey 1   select 21
+bindkey 2   select 22
 
 hardstatus on
 hardstatus alwayslastline
