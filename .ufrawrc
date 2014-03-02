@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UFRaw Version='7'>
+<DrawLines>8</DrawLines>
+<WindowMaximized>1</WindowMaximized>
+  <WB>Camera WB</WB>
+  <WBFineTuning>0</WBFineTuning>
+  <Temperature>4025</Temperature>
+  <Green>1.166</Green>
+  <ChannelMultipliers>1.2773 1.0000 1.5547 1.0000</ChannelMultipliers>
+  <LensfunAuto>no</LensfunAuto>
+<WaveletDenoisingThreshold>200</WaveletDenoisingThreshold>
+<Exposure>3.439632</Exposure>
+<AutoExposure>1</AutoExposure>
+<Saturation>1.200000</Saturation>
+<OutputType>4</OutputType>
+<CreateID>1</CreateID>
+<Compression>98</Compression>
+<Overwrite>1</Overwrite>
+<BaseManualCurve Current='yes'>
+</BaseManualCurve>
+<ManualCurve Current='yes'>
+</ManualCurve>
+<MatrixInputProfile Current='yes'>Color matrix
+	<Gamma>0.350000</Gamma>
+	<Linearity>0.050000</Linearity>
+</MatrixInputProfile>
+<sRGBOutputProfile Current='yes'>sRGB
+</sRGBOutputProfile>
+<SystemDisplayProfile Current='yes'>System default
+</SystemDisplayProfile>
+<Make>NIKON</Make>
+<Model>D300</Model>
+</UFRaw>
