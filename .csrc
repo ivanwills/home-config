@@ -13,8 +13,12 @@
     <data>
         definite = [.]dat$
     </data>
+    <ftl>
+        definite = [.]ftl$
+    </ftl>
     <jt>
-        definite = [.](?:ftl|vm)$
+        definite    = [.](?:jsp|vm)$
+        other_types = ftl
     </jt>
     <java>
         definite = [.](?:java)$
