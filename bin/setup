@@ -23,11 +23,12 @@ our $VERSION = version->new('0.0.1');
 my ($name)   = $PROGRAM_NAME =~ m{^.*/(.*?)$}mxs;
 
 my %option = (
-    out     => undef,
-    verbose => 0,
-    man     => 0,
-    help    => 0,
-    VERSION => 0,
+    file_diff => 'diff -uN',
+    dir_diff  => 'diffdir -c vimdiff -m',
+    verbose   => 0,
+    man       => 0,
+    help      => 0,
+    VERSION   => 0,
 );
 
 main();
@@ -38,7 +39,7 @@ sub main {
     Getopt::Long::Configure('bundling');
     GetOptions(
         \%option,
-        'out|o=s',
+        'diff|d=s',
         'verbose|v+',
         'man',
         'help',
@@ -74,11 +75,11 @@ sub main {
                 unlink $home;
             }
             elsif ( -f $home ) {
-                system "vimdiff '$file' '$home'";
+                system "$option{file_diff} '$file' '$home'";
                 next;
             }
             else {
-                system "diffdir -c vimdiff -m '$file' '$home'";
+                system "$option{dir_diff} '$file' '$home'";
                 next;
             }
         }
