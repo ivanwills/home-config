@@ -28,6 +28,7 @@ log
 http___
 patches/
 vrc.yml
+cmds
 
 target
 memberservices05-*
