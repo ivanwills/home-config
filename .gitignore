@@ -30,3 +30,8 @@ patches/
 vrc.yml
 cmds
 .gnupg/*.gpg
+target
+memberservices05-*
+*/optusmetv-content/css
+*/optusmetv-content/pcatnew
+.regen-files
