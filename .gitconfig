@@ -48,3 +48,5 @@
     log = true
     branchdesc = true
     ff = false
+[workflow]
+    release = branch=origin/master
