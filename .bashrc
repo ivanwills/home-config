@@ -220,6 +220,10 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
     source ~/perl5/perlbrew/etc/bashrc
 fi
 
+if [ -s $HOME/.nvm/nvm.sh ]; then
+    source $HOME/.nvm/nvm.sh # This loads NVM
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
