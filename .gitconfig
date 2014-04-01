@@ -35,6 +35,8 @@
     loglme  = log --decorate --name-status                                                                                           --author=ivan.wills --author='Ivan Wills'
     forward = pull --ff -r
     ff      = pull --ff -r
+    pl      = pull
+    ph      = push
 #[receive]
 #    denyCurrentBranch = warn
 [core]
