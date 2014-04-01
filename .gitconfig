@@ -16,6 +16,7 @@
     di = diff --ignore-all-space
     who     = shortlog -s --
     cat     = show
+    url     = config remote.origin.url
     lpg     = log --decorate --graph --name-status
     lp      = log -p
     lg      = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'
@@ -52,3 +53,4 @@
     ff = false
 [workflow]
     release = branch=origin/master
+	max-history = 10
