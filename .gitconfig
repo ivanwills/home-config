@@ -38,6 +38,7 @@
     ff      = pull --ff -r
     pl      = pull
     ph      = push
+    show-root-folder = rev-parse --show-toplevel
 #[receive]
 #    denyCurrentBranch = warn
 [core]
@@ -46,7 +47,7 @@
     ignorecase = false
     editor = vim
 [push]
-    default = simple
+    default = current
 [merge]
     log = true
     branchdesc = true
