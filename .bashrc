@@ -165,6 +165,7 @@ PATH=$PATH:/opt/bin
 PATH=$PATH:/opt/sbin
 PATH=$PATH:/opt/perl
 PATH=$PATH:/home/ivan/src/rakudo-star-2011.07/install/bin/
+PATH=$PATH:~/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:./node_modules/.bin/
 PATH=$PATH:~/.meteor
 PATH=`perl -E '%p; say join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ } split /\s*:\s*/, $ENV{PATH}'`
@@ -221,7 +222,11 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
 fi
 
 if [ -s $HOME/.nvm/nvm.sh ]; then
-    source $HOME/.nvm/nvm.sh # This loads NVM
+    source $HOME/.nvm/nvm.sh # This loads Node version manager
+fi
+
+if [ -s $HOME/.rvm/scripts/rvm ]; then
+    source $HOME/.rvm/scripts/rvm # This loads Ruby version manager
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -248,3 +253,4 @@ if [ -x `which mvn 2> /dev/null` ]; then
 fi
 
 export AUTOSSH_PORT=0
+
