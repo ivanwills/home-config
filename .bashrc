@@ -99,7 +99,7 @@ PS1_DIR="≺$PS1_WORKING $PS1_DIRS, $PS1_FILES, $PS1_SIZE≻"
 case `perl -e 'print $^O'` in
 linux)
     if `which app-ps1 2> /dev/null`; then
-        PS1="$NO_COLOUR\[\`app-ps1 -e \$? -p 'face;branch;date;directory;perl;node;uptime'\`\]\n$PS1_DEBIAN$PS1_USER$PS1_HOST \\\$ "
+        PS1="$NO_COLOUR\[\`app-ps1 -e \$? -p 'face;branch;date;directory;perl;node;ruby;uptime'\`\]\n$PS1_DEBIAN$PS1_USER$PS1_HOST \\\$ "
     elif `which ps1 2> /dev/null`; then
         PS1="$NO_COLOUR\[\`ps1 -e \$?\`\]\n$PS1_DEBIAN$PS1_USER$PS1_HOST \\\$ "
     else
@@ -168,7 +168,7 @@ PATH=$PATH:/home/ivan/src/rakudo-star-2011.07/install/bin/
 PATH=$PATH:~/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:./node_modules/.bin/
 PATH=$PATH:~/.meteor
-PATH=`perl -E '%p; say join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ } split /\s*:\s*/, $ENV{PATH}'`
+PATH=`perl -le '%p; print join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ } split /\s*:\s*/, $ENV{PATH}'`
 export PATH
 export CDPATH='.:..:../..:~/links:~'
 export VISUAL=vim
