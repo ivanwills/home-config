@@ -33,6 +33,7 @@
     logdme  = log --decorate --graph                                                                                                 --author=ivan.wills --author='Ivan Wills'
     log1me  = log --pretty=oneline                                                                                                   --author=ivan.wills --author='Ivan Wills'
     loglme  = log --decorate --name-status                                                                                           --author=ivan.wills --author='Ivan Wills'
+    parents = log --pretty=%P -n 1
     forward = pull --ff -r
     ff      = pull --ff -r
     pl      = pull
