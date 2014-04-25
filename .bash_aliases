@@ -148,3 +148,6 @@ alias chromium-ipad2='chromium-browser --disable-web-security --user-agent="Mozi
 
 # Node related aliases
 #alias gr='grunt --config gruntfile.js'
+
+# cpanm-install
+alias cpanm-install='wget -O- http://cpanmin.us | sudo perl - App::cpanminus'
