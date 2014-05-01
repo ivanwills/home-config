@@ -161,6 +161,9 @@ shopt -s cdspell
 
 PATH=~/bin:$PATH
 PATH=~/lib/bin:$PATH
+PATH=$PATH:/bin
+PATH=$PATH:/usr/bin
+PATH=$PATH:/usr/local/bin
 PATH=$PATH:/opt/bin
 PATH=$PATH:/opt/sbin
 PATH=$PATH:/opt/perl
@@ -218,7 +221,9 @@ complete -F _v v
 tty --silent && stty -ixon -ixoff
 
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
-    source ~/perl5/perlbrew/etc/bashrc
+    if [ `which perlbrew` ]; then
+        source ~/perl5/perlbrew/etc/bashrc
+    fi
 fi
 
 if [ -s $HOME/.nvm/nvm.sh ]; then

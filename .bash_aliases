@@ -55,7 +55,9 @@ logless() {
 alias tc=templatecmd
 alias diffdir="diffdir -c vimdiff -m"
 if [ -x `which vim.pl 2> /dev/null` ]; then
-    alias vim='vim.pl --skip "target|blib|_build|tmp" --find'
+    if [ `perl -MGetopt::Alt -e '1' 2> /dev/null` ]; then
+        alias vim='vim.pl --skip "target|blib|_build|tmp" --find'
+    fi
 fi
 
 ## Subversion aliases
@@ -149,3 +151,6 @@ alias chromium-ipad2='chromium-browser --disable-web-security --user-agent="Mozi
 
 # Node related aliases
 #alias gr='grunt --config gruntfile.js'
+
+# cpanm-install
+alias cpanm-install='wget -O- http://cpanmin.us | sudo perl - App::cpanminus'
