@@ -161,6 +161,9 @@ shopt -s cdspell
 
 PATH=~/bin:$PATH
 PATH=~/lib/bin:$PATH
+if [ -e ~/bin/java/bin ]; then
+    PATH=$PATH:~/bin/java/bin
+fi
 PATH=$PATH:/bin
 PATH=$PATH:/usr/bin
 PATH=$PATH:/usr/local/bin
