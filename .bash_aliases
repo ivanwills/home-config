@@ -55,7 +55,9 @@ logless() {
 alias tc=templatecmd
 alias diffdir="diffdir -c vimdiff -m"
 if [ -x `which vim.pl 2> /dev/null` ]; then
-    alias vim='vim.pl --skip "target|blib|_build|tmp" --find'
+    if [ `perl -MGetopt::Alt -e '1' 2> /dev/null` ]; then
+        alias vim='vim.pl --skip "target|blib|_build|tmp" --find'
+    fi
 fi
 
 ## Subversion aliases
