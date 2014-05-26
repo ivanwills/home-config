@@ -6,7 +6,7 @@
     status = auto
     branch = auto
     log = auto
-    ui = auto
+	ui = auto
 [alias]
     ci = commit
     s = status
@@ -34,23 +34,23 @@
     log1me  = log --pretty=oneline                                                                                                   --author=ivan.wills --author='Ivan Wills'
     loglme  = log --decorate --name-status                                                                                           --author=ivan.wills --author='Ivan Wills'
     parents = log --pretty=%P -n 1
-    forward = pull --ff -r
+	forward = pull --ff -r
     ff      = pull --ff -r
     pl      = pull
     ph      = push
-    show-root-folder = rev-parse --show-toplevel
+	show-root-folder = rev-parse --show-toplevel
 #[receive]
 #    denyCurrentBranch = warn
 [core]
     excludesfile = /home/ivan/.gitignore
-    autocrlf = input
-    ignorecase = false
+	autocrlf = input
+	ignorecase = false
     editor = vim
 [push]
-    default = current
+	default = current
 [merge]
-    log = true
-    branchdesc = true
-    ff = true
+	log = true
+	branchdesc = true
+	ff = false
 [workflow]
 	release = branch=origin/master
