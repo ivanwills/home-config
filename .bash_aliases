@@ -100,7 +100,7 @@ alias gps='ps aux | head -1; ps aux | /bin/grep -v " /bin/grep " - | /bin/grep -
 alias mkdir='mkdir -p'
 alias grep='/bin/grep -P --color'
 alias fgrep='/bin/fgrep --color'
-alias hl='/bin/grep -C 9999 --color=ALWAYS'
+alias hl='/bin/grep -C 9999 --color=ALWAYS -P'
 alias scp='scp -pr'
 alias dirs='dirs -v'
 alias jobs='jobs -l'
