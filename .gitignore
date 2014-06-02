@@ -30,3 +30,4 @@ patches/
 vrc.yml
 cmds
 .gnupg/*.gpg
+.vim/bundle/vim-perl-variable-highlighter/
