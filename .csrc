@@ -20,6 +20,9 @@
         definite    = [.](?:jsp|vm)$
         other_types = ftl
     </jt>
+    <jsp>
+        definite = [.]jsp$
+    </jsp>
     <java>
         definite = [.](?:java)$
     </java>
