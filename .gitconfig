@@ -18,18 +18,19 @@
     cat     = show
     lpg     = log --decorate --graph --name-status
     lp      = log -p
-    lg      = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'
-    lgp     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph
-    lgpv    = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --name-status
+    l       = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'
+    lg      = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph
+    lgf     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --first-parent
+    lgv     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --name-status
     logd    = log --decorate --graph
     log1    = log --pretty=oneline
     logl    = log --decorate --name-status
     logme   = log --author=ivan.wills --author='Ivan Wills'
     lpgme   = log --decorate --graph --name-status                                                                                   --author=ivan.wills --author='Ivan Wills'
     lpme    = log -p                                                                                                                 --author=ivan.wills --author='Ivan Wills'
-    lgme    = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'                       --author=ivan.wills --author='Ivan Wills'
-    lgpme   = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph               --author=ivan.wills --author='Ivan Wills'
-    lgpvme  = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --name-status --author=ivan.wills --author='Ivan Wills'
+    lme     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'                       --author=ivan.wills --author='Ivan Wills'
+    lgme    = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph               --author=ivan.wills --author='Ivan Wills'
+    lgvme   = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --name-status --author=ivan.wills --author='Ivan Wills'
     logdme  = log --decorate --graph                                                                                                 --author=ivan.wills --author='Ivan Wills'
     log1me  = log --pretty=oneline                                                                                                   --author=ivan.wills --author='Ivan Wills'
     loglme  = log --decorate --name-status                                                                                           --author=ivan.wills --author='Ivan Wills'
