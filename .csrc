@@ -71,4 +71,7 @@
     <json>
         definite = [.]ja?son$
     </json>
+    <shell>
+        definite = [.]sh$
+    </shell>
 </file_types>
