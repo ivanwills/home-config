@@ -78,4 +78,7 @@
         other_types = ftl
         other_types = javascript
     </1pfe>
+    <shell>
+        definite = [.]sh$
+    </shell>
 </file_types>
