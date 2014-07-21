@@ -10,3 +10,6 @@ contact:
   email: ivan.wills@gmail.com
   fullname: Ivan Wills
   name: Ivan
+version:
+    perl: version->new('0.0.1')
+    pod:  0.0.1
