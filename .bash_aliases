@@ -52,7 +52,6 @@ logless() {
     logcat $* | less;
 }
 
-alias tc=templatecmd
 alias diffdir="diffdir -c vimdiff -m"
 if [ -x `which vim.pl 2> /dev/null` ]; then
     if [ `perl -MGetopt::Alt -e '1' 2> /dev/null` ]; then
