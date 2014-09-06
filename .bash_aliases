@@ -32,10 +32,10 @@ alias build="perl Build.PL && ./Build && ./Build test && ./Build dist"
 alias build-clean="perl Build.PL && ./Build && ./Build test && ./Build dist && ./Build distclean && rm Makefile.PL.~?~"
 
 ## some more ls aliases
-alias ls='ls --ignore=.*.sw? --color'
-alias ll='ls --ignore=.*.sw? -lF -h'
-alias la='ls --ignore=.*.sw? -AF'
-alias l='ls  --ignore=.*.sw? -lAF -h'
+alias ls='ls --color --ignore=.*.sw?'
+alias ll='ls --color --ignore=.*.sw? -lF -h'
+alias la='ls --color --ignore=.*.sw? -AF'
+alias l='ls  --color --ignore=.*.sw? -lAF -h'
 alias lld="ls | perl -nle 'print \$_ if -d \$_' | xargs ls -dlAF --color"
 alias ils='find . 2>/dev/null | grep "~|[.]sw[nmopq]"'
 
@@ -62,6 +62,7 @@ fi
 ## Subversion aliases
 alias svndiff='svn diff --diff-cmd /usr/bin/diff'
 alias svnl1='svn log --limit 1'
+alias svn='cmdaliaser svn'
 if [ -x `which cmdaliaser 2> /dev/null` ]; then
     alias svn='cmdaliaser svn'
 fi

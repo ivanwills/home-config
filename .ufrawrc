@@ -4,13 +4,12 @@
 <WindowMaximized>1</WindowMaximized>
   <WB>Camera WB</WB>
   <WBFineTuning>0</WBFineTuning>
-  <Temperature>4025</Temperature>
-  <Green>1.166</Green>
-  <ChannelMultipliers>1.2773 1.0000 1.5547 1.0000</ChannelMultipliers>
+  <Temperature>4964</Temperature>
+  <Green>1.069</Green>
+  <ChannelMultipliers>1.5625 1.0000 1.3320 1.0000</ChannelMultipliers>
   <LensfunAuto>no</LensfunAuto>
 <WaveletDenoisingThreshold>200</WaveletDenoisingThreshold>
-<Exposure>3.439632</Exposure>
-<AutoExposure>1</AutoExposure>
+<Exposure>2.248760</Exposure>
 <Saturation>1.200000</Saturation>
 <OutputType>4</OutputType>
 <CreateID>1</CreateID>
@@ -21,8 +20,8 @@
 <ManualCurve Current='yes'>
 </ManualCurve>
 <MatrixInputProfile Current='yes'>Color matrix
-	<Gamma>0.350000</Gamma>
-	<Linearity>0.050000</Linearity>
+	<Gamma>0.245588</Gamma>
+	<Linearity>0.030000</Linearity>
 </MatrixInputProfile>
 <sRGBOutputProfile Current='yes'>sRGB
 </sRGBOutputProfile>
