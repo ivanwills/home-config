@@ -77,4 +77,7 @@
     <shell>
         definite = [.]sh$
     </shell>
+    <ruby>
+        definite = [.]rb$
+    </ruby>
 </file_types>
