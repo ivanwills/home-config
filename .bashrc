@@ -260,5 +260,9 @@ if [ -x `which mvn 2> /dev/null` ]; then
     fi
 fi
 
+tmw() {
+    tmux split-window -dh "$*"
+}
+
 export AUTOSSH_PORT=0
 
