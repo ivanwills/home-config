@@ -266,3 +266,6 @@ tmw() {
 
 export AUTOSSH_PORT=0
 
+if [ "$TERM" != "xterm" ]; then
+    TERM=xterm-256color
+fi
