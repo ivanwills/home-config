@@ -8,12 +8,14 @@
     log = auto
     ui = auto
 [alias]
-    ci = commit
-    s = status
-    st = status
-    br = branch
-    co = checkout
-    di = diff --ignore-all-space
+    ci  = commit
+    s   = status
+    st  = status
+    br  = branch
+    co  = checkout
+    coo = checkout --ours
+    cot = checkout --theirs
+    di  = diff --ignore-all-space
     who     = shortlog -s --
     cat     = show
     url     = config remote.origin.url
