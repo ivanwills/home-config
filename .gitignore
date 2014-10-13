@@ -30,6 +30,7 @@ patches/
 vrc.yml
 cmds
 .gnupg/*.gpg
+.gnupg/random_seed
 .vim/bundle/vim-perl-variable-highlighter/
 .vim/bundle/YouCompleteMe/
 .vim/ftplugin/perl/editortools.vim
