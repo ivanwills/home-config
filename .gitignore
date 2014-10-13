@@ -30,6 +30,7 @@ patches/
 vrc.yml
 cmds
 .gnupg/*.gpg
+.gnupg/random_seed
 target
 memberservices05-*
 */optusmetv-content/css
