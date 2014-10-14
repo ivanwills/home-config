@@ -1,0 +1,13 @@
+split-window -dh
+new-window
+new-window -n 'code' 'nave use 0.10.23'
+new-window -n 'code' 'nave use 0.10.23'
+new-window -n 'code' 'nave use 0.10.23'
+new-window -n 'cmd ' 'nave use 0.10.23'
+new-window -n 'cmd ' 'nave use 0.10.23'
+new-window -n 'arti' -c /home/dev/1P/op-deploy/conf/artifacts
+new-window -n 'tool' -c /home/dev/1P/OnePortal-Tools
+new-window -n 'alt ' -c /home/dev/git/gitosis-isdp/OnePortal-FrontEnd
+new-window -n 'vm  ' 'ssh -D8088 opdevvm'
+new-window -n 'log ' -c /home/dev/1P/OnePortal-FrontEnd /home/dev/bin/1pservice
+select-window -t 1
