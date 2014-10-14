@@ -13,71 +13,26 @@
     <data>
         definite = [.]dat$
     </data>
-    <ftl>
-        definite = [.]ftl$
-    </ftl>
-    <jt>
-        definite    = [.](?:jsp|vm)$
-        other_types = ftl
-    </jt>
-    <jsp>
-        definite = [.]jsp$
-    </jsp>
-    <java>
-        definite = [.](?:java)$
-    </java>
     <jar>
         definite = [.](?:jar|jsa|dll)$
     </jar>
-    <min>
-        definite = [.]min[.](css|js)$
-    </min>
     <zoo>
         definite = [.]zoo$
     </zoo>
-    <yaml>
-        definite = [.]ya?ml$
-    </yaml>
     <pm>
         definite = [.]pm$
     </pm>
-    <groovy>
-        definite = [.]groovy$
-    </groovy>
-    <less>
-        definite = [.]less$
-    </less>
-    <scss>
-        definite = [.]scss$
-    </scss>
-    <css>
-        other_types = less
-        other_types = scss
-    </css>
     <ignore>
         definite = cmds
         definite = tags
-        definite = cover_db
         definite = errors.err
         definite = [.].*[.]sw[nmopqrx]$
         definite = vrc[.]yml
         definite = [.]prove
         definite = [.]trash
-        definite = Debian_CPANTS.txt
-        definite = [.]class$
         definite = [.](?:war|jar|zip|tar)$
-        definite = target/
         definite = [.]meteor/local/
-        definite = packages/[^/]+/.build
         definite = [.]gradle/
+        definite = platforms/
     </ignore>
-    <json>
-        definite = [.]ja?son$
-    </json>
-    <shell>
-        definite = [.]sh$
-    </shell>
-    <ruby>
-        definite = [.]rb$
-    </ruby>
 </file_types>
