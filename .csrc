@@ -34,6 +34,7 @@
         definite = [.]meteor/local/
         definite = [.]gradle/
         definite = platforms/
+        definite = [.]js[.]map$
     </ignore>
     <1pfe>
         other_types = ftl
