@@ -1,0 +1,3 @@
+---
+chdir: /var/www/sites/web-meteor
+layout: web

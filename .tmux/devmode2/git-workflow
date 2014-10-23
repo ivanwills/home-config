@@ -1,0 +1,3 @@
+---
+chdir: src/git-workflow-tools/
+layout: perl
