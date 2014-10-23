@@ -134,6 +134,8 @@ alias module-starter='module-starter --mb --author="Ivan Wills" --email="ivan.wi
 
 alias ctags='ctags --exclude=blib --exclude=_build --exclude=Build --exclude=tmp'
 
+alias xcopy='xclip -selection clipboard'
+
 alias dietlog='chown www-data:www-data -R /tmp/diet*'
 
 alias home='perl -MClass::Date=now -le "system qq{cd \$ENV{HOME}/src; tar cjf home-} . now()->strftime(q{%Y-%m-%d}) . {q.tar.bz2 home}"'
