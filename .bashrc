@@ -204,6 +204,22 @@ _devmode() {
 }
 complete -F _devmode devmode
 
+# New devmode2 helper
+_devmode2() {
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="-l --layout -s --save -c --cd -C --curdir"
+    if [[ ${cur} == -* && ${COMP_CWORD} -eq 1 ]]; then
+        COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+    else
+        local sonames=$(devmode2 --auto --current ${COMP_CWORD} ${COMP_WORDS[@]})
+        COMPREPLY=($(compgen -W "${sonames}" -- ${cur}))
+    fi
+}
+complete -F _devmode2 devmode2
+
 # v auto complete
 _v() {
     local cur prev opts
