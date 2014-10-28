@@ -275,4 +275,3 @@ tmw() {
 
 export AUTOSSH_PORT=0
 
-if [ "$TERM" == "xterm" ]; then
