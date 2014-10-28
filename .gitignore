@@ -34,3 +34,4 @@ cmds
 .vim/bundle/vim-perl-variable-highlighter/
 .vim/bundle/YouCompleteMe/
 .vim/ftplugin/perl/editortools.vim
+.bash_local
