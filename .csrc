@@ -34,5 +34,7 @@
         definite = [.]meteor/local/
         definite = [.]gradle/
         definite = platforms/
+        definite = [.](?:js|css)[.]map$
+        definite = [.]sass-cache/
     </ignore>
 </file_types>
