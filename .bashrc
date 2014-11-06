@@ -213,7 +213,7 @@ _devmode2() {
 complete -F _devmode2 devmode2
 
 # group-git helper
-_devmode2() {
+_group-git() {
     COMPREPLY=()
     local sonames=$(group-git --auto-complete --current "${COMP_CWORD}" -- ${COMP_WORDS[@]})
     COMPREPLY=($(compgen -W "${sonames}" -- ${COMP_WORDS[COMP_CWORD]}))
