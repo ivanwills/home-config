@@ -1,4 +1,4 @@
-split-window 'nave use 0.10.23' -dh
+split-window -dh 'nave use 0.10.23'
 new-window 'nave use 0.10.23'
 new-window -n 'code' 'nave use 0.10.23'
 new-window -n 'code' 'nave use 0.10.23'
