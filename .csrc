@@ -36,6 +36,7 @@
         definite = platforms/
         definite = [.](?:js|css)[.]map$
         definite = [.]sass-cache/
+        definite = node_modules/
     </ignore>
     <1pfe>
         other_types = ftl
