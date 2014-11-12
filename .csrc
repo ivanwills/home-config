@@ -36,5 +36,6 @@
         definite = platforms/
         definite = [.](?:js|css)[.]map$
         definite = [.]sass-cache/
+        definite = node_modules/
     </ignore>
 </file_types>
