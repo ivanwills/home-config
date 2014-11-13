@@ -1,6 +1,8 @@
 ---
 data:
     definite: '[.]dat$'
+zoo:
+    definite: '[.]zoo$'
 pm:
     definite: '[.]pm$'
 ignore:
@@ -14,7 +16,12 @@ ignore:
           '[.]trash'
           '[.](?:war|jar|zip|tar)$'
           '[.]meteor/local/'
+          '[.]gradle/'
           'platforms/'
           '[.](?:js|css)[.]map$'
           '[.]sass-cache/'
           'node_modules/'
+1pfe:
+    other_types:
+        - ftl
+          javascript
