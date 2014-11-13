@@ -1,0 +1,20 @@
+---
+data:
+    definite: '[.]dat$'
+pm:
+    definite: '[.]pm$'
+ignore:
+    definite:
+        - 'cmds'
+          'tags'
+          'errors.err'
+          '[.].*[.]sw[nmopqrx]$'
+          'vrc[.]yml'
+          '[.]prove'
+          '[.]trash'
+          '[.](?:war|jar|zip|tar)$'
+          '[.]meteor/local/'
+          'platforms/'
+          '[.](?:js|css)[.]map$'
+          '[.]sass-cache/'
+          'node_modules/'
