@@ -35,6 +35,7 @@
     log1me  = log --pretty=oneline                                                                                                   --author=ivan.wills --author='Ivan Wills'
     loglme  = log --decorate --name-status                                                                                           --author=ivan.wills --author='Ivan Wills'
     parents = log --pretty=%P -n 1
+    changes = log --format=format:'        %s (%an)'
     forward = pull --ff -r
     ff      = pull --ff -r
     pl      = pull
