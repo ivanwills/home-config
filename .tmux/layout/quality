@@ -1,13 +1,22 @@
-split-window -dh
-new-window
+split-window -dh 'nave use 0.10.23'
+new-window 'nave use 0.10.23'
+# 2
 new-window -n 'code' 'nave use 0.10.23'
+# 3
 new-window -n 'code' 'nave use 0.10.23'
+# 4
 new-window -n 'code' 'nave use 0.10.23'
-new-window -n 'cmd ' 'nave use 0.10.23'
-new-window -n 'cmd ' 'nave use 0.10.23'
-new-window -n 'arti' -c /home/dev/1P/op-deploy/conf/artifacts
-new-window -n 'tool' -c /home/dev/1P/OnePortal-Tools
-new-window -n 'alt ' -c /home/dev/git/gitosis-isdp/OnePortal-FrontEnd
-new-window -n 'vm  ' 'ssh -D8088 opdevvm'
-new-window -n 'log ' -c /home/dev/1P/OnePortal-FrontEnd /home/dev/bin/1pservice
-select-window -t 1
+# 5
+new-window -n 'cmd ' -c '/home/dev/git/stash/Ivan Wills/Quality' 'nave use 0.10.23'
+# 6
+new-window -n 'cmd ' -c '/home/dev/git/stash/Ivan Wills/Quality' 'nave use 0.10.23'
+# 7
+new-window -n 'arti' -c '/home/dev/git/stash/Ivan Wills/Quality' 'nave use 0.10.23'
+# 8
+new-window -n 'tool' -c '/home/dev/git/stash/Ivan Wills/Quality' 'nave use 0.10.23'
+# 9
+new-window -n 'alt ' -c '/home/dev/git/stash/Ivan Wills/Quality' 'nave use 0.10.23'
+# 10
+new-window -n 'vm  ' -c '/home/dev/git/stash/OnePortal/front-end' 'nave use 0.10.23'
+
+select-window -t 6
