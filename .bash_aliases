@@ -155,3 +155,4 @@ alias chromium-ipad2='chromium-browser --disable-web-security --user-agent="Mozi
 
 # cpanm-install
 alias cpanm-install='wget -O- http://cpanmin.us | sudo perl - App::cpanminus'
+alias touchpad-off='xinput list | grep TouchPad | perl -nlE '\''/id=(\d+)/; system qq{xinput set-prop $1 "Device Enabled" 0}'\''
