@@ -281,5 +281,21 @@ tmw() {
     tmux split-window -dh "$*"
 }
 
+pmdebug () {
+
+    test_path=$1
+
+    if [ -d "$test_path" ]; then
+        echo "Full path"
+    else
+        test_path=~/src/$1
+    fi
+
+    export PATH="$test_path/bin:$PATH"
+    export PERL5LIB="$test_path/lib:$PERL5LIB"
+
+    hash -r
+}
+
 export AUTOSSH_PORT=0
 
