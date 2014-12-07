@@ -182,6 +182,7 @@ export VISUAL=vim
 export EDITOR=vim
 export PAGER='/usr/bin/less -Rx4SFX'
 export PERL5LIB=~/lib/i686-linux:~/lib:~/lib/site-perl:~/lib/lib/perl5:~/lib/site-perl:~/lib/lib/perl5/site_perl/:~/lib/lib/perl5/5.8.8/
+export APP_PS1='face;branch;date;directory;perl;node;ruby;uptime'
 
 umask ug=rwx,o=rx
 
