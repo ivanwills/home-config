@@ -1,0 +1,4 @@
+---
+aliases:
+    st: status -q
+    ff: pull --ff -r
