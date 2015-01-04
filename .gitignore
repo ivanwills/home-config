@@ -17,7 +17,7 @@ nytprof*
 tmp*
 *~
 vim.sh
-temp*
+temp/*
 err
 errors.err
 log

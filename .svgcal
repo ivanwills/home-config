@@ -1,0 +1,79 @@
+# this section configures the information about the images
+[image]
+
+# src
+# This allows specifying one image file.
+# src: image.jpg
+
+# YYYY-MM
+# This is the format for specifying a specific month's image
+#2012-01: car.gif
+#2012-02: horse.tiff
+
+# dir
+# This option allows the specifying of a directory to contain all the images
+# for the months that calendars are going to be produced. The images should
+# in the directory be specified as MM.[jpg|png] or month.[jpg|png] eg 01.jpg
+# or January.png
+dir: .
+
+# The page section sets up the SVG document size
+[page]
+
+# page
+# This allows you to specify specific page sizes eg A4. Known page sizes
+# include A0, A1, A2, A3, A4, A5, A6
+#page: A4
+page: A3
+
+# height
+# If the svg document size is not one of the predefined sizes you can use
+# this setting to set the height of the document. If no units are specified
+# the height is in pixels.
+#height: 200mm
+
+# width
+# Like height you set the SVG document size to an arbitart width
+#width: 10cm
+
+# This section controlls the displaying of the moon on the produced calendars
+[moon]
+
+# display
+# Turn on displaying of the moon (requires Astro::Coord::ECI::Moon or
+# Astro::MoonPhase to be installed)
+#display: 1
+display: 1
+
+# quarters
+# Toggles weather to only display the moon for the various quarters or to
+# show what phase the moon is in for every day.
+#quarters: 1
+quarters: 0
+
+# vpos
+# Specifies weather the moon should be aligned with the top or bottom of the
+# day's square.
+#vpos: top
+
+# hpos
+# Specifies weather the moon should be aligned with the left or right hand
+# side of the day's square.
+#hpos: right
+
+# xoffset, yoffset
+# These parameters specify the x and y offsets of the moon, the units are
+# relative units (ie page size independant) with the size of the dates square
+# being approximatly 10x16
+#xoffset: 10
+#yoffset: 10
+
+# radius
+# This specifies the size of the moon in the date's square
+#radius: 1.0
+
+# image
+# This option specifies an image file that will be used as the background for
+# the moon.
+#image: moon.jpg
+
