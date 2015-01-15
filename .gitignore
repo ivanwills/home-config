@@ -40,3 +40,6 @@ memberservices05-*
 .vim/bundle/YouCompleteMe/
 .vim/ftplugin/perl/editortools.vim
 .bash_local
+.cookies.json
+.dumbo-ctrl.rc
+regen.pl
