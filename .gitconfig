@@ -21,7 +21,7 @@
     url     = config remote.origin.url
     lpg     = log --decorate --graph --name-status
     lp      = log -p
-    l       = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'
+    l       = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --first-parent -n 20
     lg      = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph
     lgf     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --first-parent
     lgv     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --name-status
