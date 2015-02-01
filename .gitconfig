@@ -42,7 +42,7 @@
     pl      = pull
     ph      = push
     show-root-folder = rev-parse --show-toplevel
-    g = grep --break --heading --line-number
+    ack     = grep --break --heading --line-number -P
 #[receive]
 #    denyCurrentBranch = warn
 [core]
@@ -60,4 +60,4 @@
     release = ^branch=origin/master$
 
 [grep]
-	extendRegexp = true
+    extendRegexp = true
