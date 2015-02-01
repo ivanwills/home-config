@@ -44,6 +44,7 @@
     pl      = pull
     ph      = push
     show-root-folder = rev-parse --show-toplevel
+    g = grep --break --heading --line-number
 #[receive]
 #    denyCurrentBranch = warn
 [core]
@@ -58,6 +59,8 @@
     branchdesc = true
     ff = false
 [workflow]
-    release = branch=origin/master
+    release = ^branch=origin/master$
     max-history = 10
 
+[grep]
+	extendRegexp = true
