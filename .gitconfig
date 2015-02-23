@@ -59,7 +59,7 @@
     branchdesc = true
     ff = false
 [workflow]
-    release = ^branch=origin/master$
+    release = branch=^origin/master$
     max-history = 10
 
 [grep]
