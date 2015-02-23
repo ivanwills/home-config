@@ -272,7 +272,7 @@ if [ -x `which mvn 2> /dev/null` ]; then
     if [ -x `which tee 2> /dev/null` ]; then
         if [ -x `which tailt 2> /dev/null` ]; then
             mvn() {
-                time /usr/bin/mvn $@ | tee ~/log/`pwd | perl -pe 's{.*/}{}'`.log | tailt -c liferay
+                time /usr/bin/mvn $@ | tee ~/log/mvn-`pwd | perl -pe 's{.*/}{}'`.log | tailt -c liferay
             }
         fi
     fi
