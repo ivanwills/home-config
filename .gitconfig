@@ -1,21 +1,21 @@
 [user]
-    name = Ivan Wills
+    name  = Ivan Wills
     email = Ivan.Wills2@optus.com.au
 [color]
-    diff = auto
+    diff   = auto
     status = auto
     branch = auto
-    log = auto
-    ui = auto
+    log    = auto
+    ui     = auto
 [alias]
-    ci  = commit
-    s   = status
-    st  = status
-    br  = branch
-    co  = checkout
-    coo = checkout --ours
-    cot = checkout --theirs
-    di  = diff --ignore-all-space
+    ci      = commit
+    s       = status
+    st      = status
+    br      = branch
+    co      = checkout
+    coo     = checkout --ours
+    cot     = checkout --theirs
+    di      = diff --ignore-all-space
     who     = shortlog -s --
     cat     = show
     url     = config remote.origin.url
@@ -49,18 +49,17 @@
 #    denyCurrentBranch = warn
 [core]
     excludesfile = /home/dev/.gitignore
-    autocrlf = input
-    ignorecase = false
-    editor = vim
+    autocrlf     = input
+    ignorecase   = false
+    editor       = vim
 [push]
     default = current
 [merge]
-    log = true
+    log        = true
     branchdesc = true
-    ff = false
+    ff         = false
 [workflow]
     release = branch=^origin/master$
     max-history = 10
-
 [grep]
     extendRegexp = true
