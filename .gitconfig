@@ -1,19 +1,19 @@
 [user]
-    name = Ivan Wills
+    name  = Ivan Wills
     email = ivan.wills@gmail.com
 [color]
-    diff = auto
+    diff   = auto
     status = auto
     branch = auto
-    log = auto
-    ui = auto
+    log    = auto
+    ui     = auto
 [alias]
-    ci  = commit
-    s   = status
-    st  = status
-    br  = branch
-    co  = checkout
-    di  = diff --ignore-all-space
+    ci      = commit
+    s       = status
+    st      = status
+    br      = branch
+    co      = checkout
+    di      = diff --ignore-all-space
     who     = shortlog -s --
     cat     = show
     url     = config remote.origin.url
@@ -47,17 +47,16 @@
 #    denyCurrentBranch = warn
 [core]
     excludesfile = /home/ivan/.gitignore
-    autocrlf = input
-    ignorecase = false
-    editor = vim
+    autocrlf     = input
+    ignorecase   = false
+    editor       = vim
 [push]
     default = current
 [merge]
-    log = true
+    log        = true
     branchdesc = true
-    ff = false
+    ff         = false
 [workflow]
-    release = ^branch=origin/master$
-
+    release = branch=^origin/master$
 [grep]
     extendRegexp = true
