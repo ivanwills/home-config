@@ -74,7 +74,8 @@ fi
 
 ## GIT
 if [ -x `which correct-vcs 2> /dev/null` ]; then
-    alias git='correct-vcs'
+    # No longer sure I should to this with the problems it causes with auto-complete
+    #alias git='correct-vcs'
 fi
 
 ## CVS
