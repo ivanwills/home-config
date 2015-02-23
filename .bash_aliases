@@ -76,7 +76,7 @@ fi
 if [ -x `which correct-vcs 2> /dev/null` ]; then
     # No longer sure I should to this with the problems it causes with auto-complete
     #alias git='correct-vcs'
-    unalias git
+    unalias git 2> /dev/null
 fi
 git-merge-fix() {
     git fmt-merge-msg < .git/FETCH_HEAD > .git/MERGE_MSG
