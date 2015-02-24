@@ -175,6 +175,7 @@ PATH=$PATH:~/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:./node_modules/.bin/
 PATH=$PATH:~/.meteor
 PATH=$PATH::~/bin/adt-bundle/sdk/platform-tools:~/bin/adt-bundle/sdk/tools
+PATH=~/.rakudobrew/bin:$PATH
 PATH=`perl -le '%p; print join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ } split /\s*:\s*/, $ENV{PATH}'`
 export PATH
 export CDPATH='.:..:../..:~/links:~'
