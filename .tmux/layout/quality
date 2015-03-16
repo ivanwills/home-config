@@ -15,7 +15,7 @@ new-window -n 'arti' -c '/home/dev/git/stash/Ivan Wills/Quality' 'nave use 0.10.
 # 8
 new-window -n 'tool' -c '/home/dev/git/stash/Ivan Wills/Quality' 'nave use 0.10.33'
 # 9
-new-window -n 'alt ' -c '/home/dev/git/stash/Ivan Wills/Quality' 'tail -120f ~/log/jenkins-stash-sonar.log | less -RS'
+new-window -n 'alt ' -c '/home/dev/git/stash/Ivan Wills/Quality' 'tail -120f ~/log/jenkins-stash-sonar.log'
 # 10
 new-window -n 'vm  ' -c '/home/dev/git/stash/OnePortal/front-end' 'nave use 0.10.33'
 
