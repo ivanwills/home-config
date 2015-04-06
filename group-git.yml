@@ -1,4 +1,4 @@
 ---
 aliases:
     st: status -q
-    ff: pull --ff -r
+    ff: pull --ff -r true
