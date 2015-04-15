@@ -81,6 +81,8 @@ fi
 git-merge-fix() {
     git fmt-merge-msg < .git/FETCH_HEAD > .git/MERGE_MSG
 }
+alias gg="git grep"
+alias ga="git ack"
 
 ## CVS
 if [ -x `which cmdaliaser 2> /dev/null` ]; then
