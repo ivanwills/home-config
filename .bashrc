@@ -118,6 +118,13 @@ solaris)
     ;;
 esac
 
+## Set up "Eternal" bash history logging
+# Based on Paul's eternal history
+et_history () {
+    echo -e $$\\t$USER\\t$HOSTNAME\\t`if [ "$TMUX" ]; then echo tmux; elif [ "$TERM" = "screen" ]; then echo screen ; else echo -; fi` $WINDOW\\t`date +%F\ %X`\\t$PWD\\t"$(history 1)" >> ~/.bash_history_eternal
+}
+export PS1="$PS1`et_history`"
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
