@@ -121,9 +121,21 @@ esac
 ## Set up "Eternal" bash history logging
 # Based on Paul's eternal history
 et_history () {
-    echo -e $$\\t$USER\\t$HOSTNAME\\t`if [ "$TMUX" ]; then echo tmux; elif [ "$TERM" = "screen" ]; then echo screen ; else echo -; fi` $WINDOW\\t`date +%F\ %X`\\t$PWD\\t"$(history 1)" >> ~/.bash_history_eternal
+    HISTORY=`history 1`
+    if [ "$HISTORY" ]; then
+        if [ "$TMUX" ]; then
+            MULTIPLEXER=tmux
+        elif [ "$TERM" = "screen" ]; then
+            MULTIPLEXER="screen $WINDOW"
+        else
+            MULTIPLEXER=-
+        fi
+        DATE=`date +%F\ %X`
+
+        echo -e $$\\t$USER\\t$HOSTNAME\\t$MULTIPLEXER\\t$DATE\\t$PWD\\t"$HISTORY" >> ~/.bash_history_eternal
+    fi
 }
-export PS1="$PS1`et_history`"
+export PS1="$PS1$(et_history)"
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
