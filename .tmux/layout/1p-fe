@@ -1,14 +1,14 @@
-split-window -dh 'nave use 0.10.33'
-new-window 'nave use 0.10.33'
-new-window -n 'code' 'nave use 0.10.33'
-new-window -n 'code' 'nave use 0.10.33'
-new-window -n 'code' 'nave use 0.10.33'
-new-window -n 'cmd ' 'nave use 0.10.33'
-split-window -dh 'nave use 0.10.33'
-new-window -n 'cmd ' 'nave use 0.10.33'
+split-window -dh 'nave use 0.12.2'
+new-window 'nave use 0.12.2'
+new-window -n 'code' 'nave use 0.12.2'
+new-window -n 'code' 'nave use 0.12.2'
+new-window -n 'code' 'nave use 0.12.2'
+new-window -n 'cmd ' 'nave use 0.12.2'
+split-window -dh 'nave use 0.12.2'
+new-window -n 'cmd ' 'nave use 0.12.2'
 new-window -n 'arti' -c /home/dev/1P/op-artifacts/conf/artifacts
 new-window -n 'pack' -c /home/dev/1P/op-packages
 new-window -n 'tool' -c /home/dev/1P/OnePortal-Tools/LightControl "./usbled_jenkins_view.pl --notify --monitor -1 -v --sleep 10 'http://sdpbuild01.lab.optusnet.com.au/jenkinsdev/view/Projects/view/One%20Portal%20CET/' 'http://sdpbuild01.lab.optusnet.com.au/jenkinsdev/job/OnePortal-FrontEnd-Release/'"
-new-window -n 'alt ' -c /home/dev/git/gitosis-isdp/OnePortal-FrontEnd 'nave use 0.10.33'
+new-window -n 'alt ' -c /home/dev/git/gitosis-isdp/OnePortal-FrontEnd 'nave use 0.12.2'
 new-window -n 'log ' -c /home/dev/1P/OnePortal-FrontEnd /home/dev/bin/1pservice
 select-window -t 6
