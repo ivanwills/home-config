@@ -1,0 +1,10 @@
+split-window -d 'nave use 0.10.33'
+split-window -dh 'nave use 0.10.33'
+new-window 'nave use 0.10.33'
+new-window 'nave use 0.10.33'
+new-window 'nave use 0.10.33'
+new-window 'nave use 0.10.33'
+new-window 'nave use 0.10.33'
+new-window 'nave use 0.10.33'
+select-window -t 1
+
