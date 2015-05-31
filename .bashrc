@@ -227,9 +227,7 @@ complete -F _devmode devmode
 
 # New devmode2 helper
 _devmode2() {
-    COMPREPLY=()
-    local sonames=$(devmode2 --auto --current "${COMP_CWORD}" -- ${COMP_WORDS[@]})
-    COMPREPLY=($(compgen -W "${sonames}" -- ${COMP_WORDS[COMP_CWORD]}))
+    COMPREPLY=($(devmode2 --auto --current "${COMP_CWORD}" -- ${COMP_WORDS[@]}))
 }
 complete -F _devmode2 devmode2
 
