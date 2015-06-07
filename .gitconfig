@@ -60,3 +60,5 @@
     release = branch=^origin/master$
 [grep]
     extendRegexp = true
+[credential]
+	helper = store
