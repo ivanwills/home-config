@@ -20,7 +20,7 @@ fi
 #export HISTCONTROL=ignoredups
 # don't add ls l ll bg fg or exit commands to the history list
 export HISTIGNORE="&:ls:l:ll:[bf]g:exit"
-export HISTSIZE=10000
+export HISTSIZE=100000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
