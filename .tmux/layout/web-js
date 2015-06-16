@@ -1,5 +1,5 @@
 split-window -dh 'nave use 0.12.2'
-split-window -dv 'nave use 0.12.2'
+split-window -v 'nave use 0.12.2'
 new-window 'nave use 0.12.2'
 new-window 'nave use 0.12.2'
 new-window 'nave use 0.12.2'
