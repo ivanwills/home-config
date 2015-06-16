@@ -1,0 +1,13 @@
+split-window -dh
+new-window
+new-window
+new-window
+new-window
+new-window
+new-window
+new-window
+new-window
+new-window
+new-window
+new-window 'sudo -s'
+select-window -t 1
