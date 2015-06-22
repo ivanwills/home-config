@@ -46,6 +46,7 @@
     ph      = push
     show-root-folder = rev-parse --show-toplevel
     ack     = grep --break --heading --line-number -P
+    stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
 #[receive]
 #    denyCurrentBranch = warn
 [core]
