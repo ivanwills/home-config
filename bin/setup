@@ -17,7 +17,7 @@ use Pod::Usage;
 use Data::Dumper qw/Dumper/;
 use English qw/ -no_match_vars /;
 use FindBin qw/$Bin/;
-use Path::Class;
+use Path::Tiny;
 
 our $VERSION = version->new('0.0.1');
 my ($name)   = $PROGRAM_NAME =~ m{^.*/(.*?)$}mxs;
@@ -58,14 +58,14 @@ sub main {
     }
 
     # do stuff here
-    my $basedir = file($0)->parent->parent->resolve->absolute;
+    my $basedir = path($0)->parent->parent->resolve->absolute;
 
     for my $file ($basedir->children) {
         my $basename = $file->can('basename') ? $file->basename : '';
         next if $basename !~ /^[.]/;
         next if $basename =~ /^[.].*([.]sw[ponx])$/;
 
-        my $home = file( $ENV{HOME}, $file->basename );
+        my $home = path( $ENV{HOME}, $file->basename );
         if ( ! -e $home ) {
             print "Linking " . $file->basename . "\n";
         }
