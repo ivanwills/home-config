@@ -67,3 +67,7 @@
     extendRegexp = true
 [credential]
 	helper = store
+[init]
+	templatedir = /home/dev/git-hooks/hooks
+[helpers]
+	add-jira = true
