@@ -13,6 +13,7 @@
     s       = status
     st      = status
     br      = branch
+    sw      = switch
     co      = checkout
     coo     = checkout --ours
     cot     = checkout --theirs
