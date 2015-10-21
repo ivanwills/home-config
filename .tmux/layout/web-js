@@ -1,4 +1,4 @@
-split-window -dh 'nave use 0.12.2'
+split-window -h 'nave use 0.12.2'
 split-window -dv 'nave use 0.12.2'
 new-window 'nave use 0.12.2'
 new-window 'nave use 0.12.2'
@@ -7,4 +7,3 @@ new-window 'nave use 0.12.2'
 new-window 'nave use 0.12.2'
 new-window 'nave use 0.12.2'
 select-window -t 1
-
