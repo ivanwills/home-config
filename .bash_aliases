@@ -131,6 +131,11 @@ please() { sudo `history -p '!!'`; }
 alias jsontidy='json_pp -f json -t json -json_opt relaxed,pretty,allow_singlequote'
 alias yamltidy='json_xs -f yaml -t yaml'
 
+# Touch pad toggling
+
+alias padoff='xinput -disable 14'
+alias padon='xinput -enable 14'
+
 ## Un-characterised
 
 alias sd='perl -MClass::Date -le "print Class::Date->new(\$_) for (@ARGV)" 2>/dev/null'
