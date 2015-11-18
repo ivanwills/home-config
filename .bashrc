@@ -318,3 +318,5 @@ pmdebug () {
 
 export AUTOSSH_PORT=0
 
+# added by travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
