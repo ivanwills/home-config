@@ -58,7 +58,7 @@ sub main {
     }
 
     # do stuff here
-    my $basedir = path($0)->parent->parent->resolve->absolute;
+    my $basedir = path($0)->parent->parent->absolute;
 
     for my $file ($basedir->children) {
         my $basename = $file->can('basename') ? $file->basename : '';
@@ -69,8 +69,8 @@ sub main {
         if ( ! -e $home ) {
             print "Linking " . $file->basename . "\n";
         }
-        elsif ( $home->resolve->absolute ne $file ) {
-            print "Moving " . $file . ' to ' . $home->resolve->absolute . "\n";
+        elsif ( $home->absolute ne $file ) {
+            print "Moving " . $file . ' to ' . $home->absolute . "\n";
             if ( -l $home ) {
                 unlink $home;
             }
