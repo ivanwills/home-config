@@ -49,6 +49,7 @@ alias 'cd..'='cd ..'
 alias diff='diff -uN'
 alias vvd='vcsvimdiff'
 alias vd='vcsvimdiff -Rv'
+alias v='v --title -O'
 alias less='less -R'
 alias logcat="perl -ple 's/\033.*?m//g; s/\07//g; s/\010//g; s/\015//g'"
 logless() {
