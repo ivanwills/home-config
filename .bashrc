@@ -99,7 +99,7 @@ PS1_DIR="≺$PS1_WORKING $PS1_DIRS, $PS1_FILES, $PS1_SIZE≻"
 case `perl -e 'print $^O'` in
 linux)
     if `which app-ps1 2> /dev/null`; then
-        PS1="$NO_COLOUR\[\`app-ps1 -e \$? -p 'face;branch;date;directory;perl;node;ruby;uptime'\`\]\n$PS1_DEBIAN$PS1_USER$PS1_HOST \\\$ "
+        PS1="$NO_COLOUR\[\`app-ps1 -e \$?\`\]\n$PS1_DEBIAN$PS1_USER$PS1_HOST \\\$ "
     elif `which ps1 2> /dev/null`; then
         PS1="$NO_COLOUR\[\`ps1 -e \$?\`\]\n$PS1_DEBIAN$PS1_USER$PS1_HOST \\\$ "
     else
@@ -202,7 +202,7 @@ export VISUAL=vim
 export EDITOR=vim
 export PAGER='/usr/bin/less -Rx4SFX'
 export PERL5LIB=~/lib/i686-linux:~/lib:~/lib/site-perl:~/lib/lib/perl5:~/lib/site-perl:~/lib/lib/perl5/site_perl/:~/lib/lib/perl5/5.8.8/
-export APP_PS1='face;branch;date;directory;perl;node;ruby;uptime'
+export APP_PS1='face;branch;date;directory{"file":false,"dir":false};perl;node;ruby;uptime'
 
 umask ug=rwx,o=rx
 

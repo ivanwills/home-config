@@ -13,7 +13,10 @@
     s       = status
     st      = status
     br      = branch
+    sw      = switch
     co      = checkout
+    coo     = checkout --ours
+    cot     = checkout --theirs
     di      = diff --ignore-all-space
     who     = shortlog -s --
     cat     = show
