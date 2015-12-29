@@ -101,6 +101,25 @@ alias killmine="perl -E 'map {system \"kill -9 \$_\"} grep {\$_ ne \$\$} map {s/
 alias top1='top -bn1 | head -n 7 | tail -1; top -bn1 '
 alias top7='top -bn1 | head -n 7; top -bn1 '
 
+alias psmem='ps auxf | sort -n -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head'
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+alias cpuinfo='lscpu'
+alias gpumeminfo='grep -i --color memory --text /var/log/Xorg.0.log'
+
+alias ports='netstat -tulanp'
+alias ping='ping -c 3 -s.2'
+
+alias ipt='sudo /sbin/iptables'
+
+# display all rules #
+alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
+alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
+alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
+alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+
 ## Grep pipe short cuts
 
 alias ghistory='history | /bin/grep -P --color'
