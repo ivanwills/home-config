@@ -12,7 +12,8 @@ alias gffind='find . -type f 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS
 alias jfind='find src 2> /dev/null | /bin/grep -vP "[.]sw[pnox]" | /bin/grep -P --color'
 # search Perl's @INC for argument $1
 # usage: incfind module
-alias incfind='perl -e "for\$p(@INC){ opendir P,\$p; for(readdir P){ print \"\$p/\$_\n\"if/\$ARGV[0]/ } }"'
+alias incall='find `perl -E "say join \"\n\", @INC"` -type f 2> /dev/null | grep "[.](pm|pod)\$" | sort'
+alias incfind='incall | grep'
 
 # smarten up cs
 alias cs='cs --smart -x "deps/" '
