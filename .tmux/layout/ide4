@@ -1,0 +1,6 @@
+split-window -h 'ide 1a'
+split-window -dv 'ide 1b'
+new-window 'ide 2'
+new-window 'ide 3'
+new-window 'ide 4'
+select-window -t 1
