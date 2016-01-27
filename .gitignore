@@ -35,3 +35,4 @@ cmds
 .vim/bundle/YouCompleteMe/
 .vim/ftplugin/perl/editortools.vim
 .bash_local
+.ide.yml
