@@ -1,1 +1,3 @@
-*.pl diff=perl
+*.pl   diff=perl
+.vimrc text
+.vimrc diff
