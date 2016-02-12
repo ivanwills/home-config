@@ -274,9 +274,7 @@ complete -F _v v
 tty --silent && stty -ixon -ixoff
 
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
-    if [ `which perlbrew` ]; then
-        source ~/perl5/perlbrew/etc/bashrc
-    fi
+    source ~/perl5/perlbrew/etc/bashrc
 fi
 
 if [ -s $HOME/.nvm/nvm.sh ]; then
