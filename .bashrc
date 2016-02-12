@@ -16,12 +16,6 @@ if [ ! -d ~/log ]; then
     mkdir ~/log
 fi
 
-# don't put duplicate lines in the history. See bash(1) for more options
-#export HISTCONTROL=ignoredups
-# don't add ls l ll bg fg or exit commands to the history list
-export HISTIGNORE="&:ls:l:ll:[bf]g:exit"
-export HISTSIZE=100000
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -150,6 +144,11 @@ export HISTFILE=~/.bash_eternal_history
 # Force prompt to write history after every command.
 # http://superuser.com/questions/20900/bash-history-loss
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# don't put duplicate lines in the history. See bash(1) for more options
+#export HISTCONTROL=ignoredups
+# don't add ls l ll bg fg or exit commands to the history list
+export HISTIGNORE="&:ls:l:ll:[bf]g:exit"
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
