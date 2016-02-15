@@ -244,6 +244,12 @@ _devmode2() {
 }
 complete -F _devmode2 devmode2
 
+# New vtide helper
+_vtide() {
+    COMPREPLY=($(vtide --auto-complete ${COMP_WORDS[1]} -- ${COMP_WORDS[@]}))
+}
+complete -F _vtide vtide
+
 # group-git helper
 _group-git() {
     COMPREPLY=()
@@ -273,7 +279,9 @@ complete -F _v v
 tty --silent && stty -ixon -ixoff
 
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
-    source ~/perl5/perlbrew/etc/bashrc
+    if [ `which perlbrew` ]; then
+        source ~/perl5/perlbrew/etc/bashrc
+    fi
 fi
 
 if [ -s $HOME/.nvm/nvm.sh ]; then

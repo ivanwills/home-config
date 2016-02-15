@@ -21,6 +21,7 @@
     who     = shortlog -s --
     #cat     = show
     url     = config remote.origin.url
+    tags    = tag
     lpg     = log --decorate --graph --name-status
     lp      = log -p
     l       = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --first-parent -n 20
