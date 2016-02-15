@@ -1,12 +1,12 @@
---- 
-sessions: 
-  app-beta: /home/ivan/src/App-Beta
-  beta: /home/ivan/src/beta
-  geox: /home/ivan/src/GEOX
-  getopt-alt: /home/ivan/src/GetOpt-Alt
-  gulp-ractive-foundation: /home/ivan/src/gulp-ractive-foundation
-  map-source: /home/ivan/src/map-source
-  mssh: /home/ivan/src/App-MultiSsh
-  optus: /home/ivan/1P
-  ux-image: /home/ivan/src/ux-image
-  vtide: /home/ivan/src/App-VTide
+---
+sessions:
+  app-beta: /home/dev/src/App-Beta
+  beta: /home/dev/src/beta
+  geox: /home/dev/src/GEOX
+  getopt-alt: /home/dev/src/GetOpt-Alt
+  gulp-ractive-foundation: /home/dev/src/gulp-ractive-foundation
+  map-source: /home/dev/src/map-source
+  mssh: /home/dev/src/App-MultiSsh
+  optus: /home/dev/1P
+  ux-image: /home/dev/src/ux-image
+  vtide: /home/dev/src/App-VTide
