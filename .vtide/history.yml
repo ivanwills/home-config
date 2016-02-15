@@ -1,0 +1,9 @@
+--- 
+sessions: 
+  app-beta: /home/dev/src/App-Beta
+  beta: /home/dev/src/beta
+  geox: /home/dev/src/GEOX
+  gulp-ractive-foundation: /home/dev/src/gulp-ractive-foundation
+  map-source: /home/dev/src/map-source
+  ux-image: /home/dev/src/ux-image
+  vtide: /home/dev/src/App-VTide
