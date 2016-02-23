@@ -26,3 +26,6 @@ editor:
             - bin/*
         test:
             - t/**/*.t
+terminals:
+  1:
+    split: Hv
