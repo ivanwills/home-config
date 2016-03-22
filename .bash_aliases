@@ -123,7 +123,11 @@ alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
 
 ## Grep pipe short cuts
 
-alias ghistory='history | /bin/grep -P --color'
+if [ -f "~/.bash_eternal_history" ]; then
+    alias ghistory='cat ~/.bash_eternal_history | /bin/grep -P --color'
+else
+    alias ghistory='history | /bin/grep -P --color'
+fi
 alias gps='ps aux | head -1; ps aux | /bin/grep -v " /bin/grep " - | /bin/grep -P --color'
 
 ## From http://www.ukuug.org/events/linux2003/papers/bash_tips/
