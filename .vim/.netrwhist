@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/opt/1.5T/GDL/bitbucket/gdlpuppet-ivan/tomcat/templates'
-let g:netrw_dirhist_2='/opt/1.5T/GDL/bitbucket/gdlpuppet-ivan/tomcat/templates/payui'
-let g:netrw_dirhist_3='/opt/1.5T/Workspaces/GDL/gdl-commons-security/src/test/java/au/com/optus/gdl/commons'
-let g:netrw_dirhist_4='/opt/1.5T/Workspaces/GDL/gdl-commons-security/src/test/java/au/com/optus/gdl/domain'
-let g:netrw_dirhist_5='/opt/1.5T/GDL/gdl_utils/lib/GDL/Util'
-let g:netrw_dirhist_6='/opt/1.5T/GDL/gdcb_batch/t'
