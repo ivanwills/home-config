@@ -28,4 +28,4 @@ editor:
             - t/**/*.t
 terminals:
   1:
-    split: Hv
+    split: Hv0
