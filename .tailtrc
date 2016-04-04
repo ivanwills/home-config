@@ -80,7 +80,84 @@ configs:
               - bold
             enabled: 1
             regex: !!perl/regexp (?-xism:FATAL)
-  log4perl:
+  liferay:
+    post_process:
+      - !!perl/hash:Tail::Tool::Plugin::Highlight
+        many: 1
+        post: 1
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - blue
+            enabled: 1
+            regex: !!perl/regexp (?-xism:DEBUG|SLF4J|^\[debug\])
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - green
+            enabled: 1
+            regex: !!perl/regexp (?-xism:INFO)
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - yellow
+            enabled: 1
+            regex: !!perl/regexp (?-xism:WARN(?:ING)?)
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - red
+            enabled: 1
+            regex: !!perl/regexp (?-xism:ERROR|SEVERE)
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - magenta
+              - bold
+            enabled: 1
+            regex: !!perl/regexp (?-xism:FATAL)
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - bold
+              - blue
+            enabled: 1
+            regex: '\[\d\d\d\d/\d\d/\d\d\s+\d\d:\d\d:\d\d\]|^(?:\d\d/\d\d/\d\d\d\d|\d\d\d\d-\d\d-\d\d)?(?:\s*|T)\d?\d:\d\d:\d\d(?:\s+[AP]M)?'
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - bold
+              - blue
+              - underline
+            enabled: 1
+            regex: '\d\d/\d\d/\d\d\d\d\s+\d?\d:\d\d:\d\d(\s+[AP]M)?'
+#          - !!perl/hash:Tail::Tool::Regex
+#            colour:
+#              - bold
+#            enabled: 1
+#            regex: !!perl/regexp (?-xism:\[[^\]]*\])
+    pre_process:
+      - !!perl/hash:Tail::Tool::Plugin::Replace
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - blue
+            enabled: 1
+            regex: '(\d\d)/(\d\d)/(\d\d\d\d)(\s+\d?\d:\d\d:\d\d(\s+[AP]M)?)'
+            replace: $3-$2-$1$4
+      - !!perl/hash:Tail::Tool::Plugin::Replace
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - blue
+            enabled: 1
+            regex: '^(\d\d):(\d\d):(\d\d)'
+            replace: '".sprintf qq/%04i-%02i-%02i $1:$2:$3/,(localtime)[5]+1900,(localtime)[4]+1,(localtime)[3]."'
+      - !!perl/hash:Tail::Tool::Plugin::Replace
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - blue
+            enabled: 1
+            regex: '^(\w+\s+\d{1,2},\s+\d{4}\s+\d{1,2}:\d{1,2}:\d{1,2}\s*[AP]M)'
+            # Jul 9, 2012 1:28:41 PM
+            # perl -MDateTime::Format::Strptime=strptime -le 'print strptime "%b %d, %Y %r", "Jul 9, 2012 1:28:41 PM";'
+            replace: '".require q{DateTime/Format/Strptime.pm}; DateTime::Format::Strptime::strptime(q/%b %d, %Y %r/, $1)."'
+  gdl:
     post_process:
       - !!perl/hash:Tail::Tool::Plugin::Highlight
         many: 1
@@ -91,27 +168,38 @@ configs:
               - blue
             enabled: 1
             regex: !!perl/regexp (?-xism:(?<=\s)DEBUG(?=\s))
+  log4perl:
+    post_process:
+      - !!perl/hash:Tail::Tool::Plugin::Highlight
+        many: 1
+        post: 1
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            colour:
+              - blue
+            enabled: 1
+            regex: !!perl/regexp (?-xism:\bDEBUG\b)
           - !!perl/hash:Tail::Tool::Regex
             colour:
               - green
             enabled: 1
-            regex: !!perl/regexp (?-xism:(?<=\s)INFO(?=\s))
+            regex: !!perl/regexp (?-xism:\bINFO\b)
           - !!perl/hash:Tail::Tool::Regex
             colour:
               - yellow
             enabled: 1
-            regex: !!perl/regexp (?-xism:(?<=\s)WARN(?=\s))
+            regex: !!perl/regexp (?-xism:\bWARN\b)
           - !!perl/hash:Tail::Tool::Regex
             colour:
               - red
             enabled: 1
-            regex: !!perl/regexp (?-xism:(?<=\s)ERROR(?=\s))
+            regex: !!perl/regexp (?-xism:\bERROR\b)
           - !!perl/hash:Tail::Tool::Regex
             colour:
               - magenta
               - bold
             enabled: 1
-            regex: !!perl/regexp (?-xism:(?<=\s)FATAL(?=\s))
+            regex: !!perl/regexp (?-xism:\bFATAL\b)
           - !!perl/hash:Tail::Tool::Regex
             colour:
               - magenta
@@ -146,8 +234,8 @@ configs:
         many: 0
         post: 0
         times:
-          - 2
-          - 5
+          - 8
+          - 15
       - !!perl/hash:Tail::Tool::Plugin::Ignore
         many: 1
         post: 0
