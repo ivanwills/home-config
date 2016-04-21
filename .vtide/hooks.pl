@@ -5,6 +5,7 @@ use Path::Tiny;
         my ($self, $name_ref ) = @_;
         # keep all names lower case
         $$name_ref = lc $$name_ref;
+        $$name_ref =~ s/[.]/-/g;
     },
     start_pre => sub {
         my ($self, $name, $dir) = @_;
