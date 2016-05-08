@@ -36,3 +36,4 @@ cmds
 .vim/ftplugin/perl/editortools.vim
 .bash_local
 .ide.yml
+.vim/view
