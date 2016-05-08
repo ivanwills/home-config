@@ -129,7 +129,7 @@ else
     alias ghistory='history | /bin/grep -P --color'
 fi
 alias gps='ps aux | head -1; ps aux | /bin/grep -v " /bin/grep " - | /bin/grep -P --color'
-alias glsof='lsof | head -1; lsof | /bin/grep -v " /bin/grep " - | /bin/grep -P --color'
+alias glsof='lsof 2> /dev/null | head -1; lsof 2> /dev/null | /bin/grep -v " /bin/grep " - | /bin/grep -P --color'
 
 ## From http://www.ukuug.org/events/linux2003/papers/bash_tips/
 
