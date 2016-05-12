@@ -203,3 +203,6 @@ alias touchpad-off='xinput list | grep TouchPad | perl -nlE '\''/id=(\d+)/; syst
 # wget
 alias wget='wget -c'
 
+# realclear
+alias realclear='perl -le "print q{ } for 0..999"'
+
