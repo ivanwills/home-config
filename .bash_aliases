@@ -3,13 +3,16 @@
 # find a file in specified path
 # usage afind colon_seperated_path file
 alias afind='perl -e "for\$p(split/:/,\$ARGV[0]){ opendir P,\$p; for(readdir P){ print \"\$p/\$_\n\"if/\$ARGV[1]/ } }"'
+
 # search the $PATH for all occurances of argument 1
 # usage: pfind file
 alias pfind='perl -e "for\$p(split/:/,\$ENV{PATH}){ opendir P,\$p; for(readdir P){ print \"\$p/\$_\n\"if/\$ARGV[0]/ } }"'
+
 # search for file names
 alias gfind='find . 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
 alias gffind='find . -type f 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
 alias jfind='find src 2> /dev/null | /bin/grep -vP "[.]sw[pnox]" | /bin/grep -P --color'
+
 # search Perl's @INC for argument $1
 # usage: incfind module
 alias incall='find `perl -E "say join \"\n\", @INC"` -type f 2> /dev/null | grep "[.](pm|pod)\$" | sort'
@@ -169,10 +172,6 @@ alias chromium-gs3='chromium-browser --disable-web-security --user-agent="Mozill
 alias chromium-ip3='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16" 2> /dev/null > /dev/null'
 alias chromium-ipad='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10" 2> /dev/null > /dev/null'
 alias chromium-ipad2='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X; en-us) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3" 2> /dev/null > /dev/null'
-#alias chromium-gs3='chromium-browser --disable-web-security --user-agent="" 2> /dev/null > /dev/null'
-
-# Node related aliases
-#alias gr='grunt --config gruntfile.js'
 
 # cpanm-install
 alias cpanm-install='wget -O- http://cpanmin.us | sudo perl - App::cpanminus'
