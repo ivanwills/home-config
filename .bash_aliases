@@ -3,13 +3,16 @@
 # find a file in specified path
 # usage afind colon_seperated_path file
 alias afind='perl -e "for\$p(split/:/,\$ARGV[0]){ opendir P,\$p; for(readdir P){ print \"\$p/\$_\n\"if/\$ARGV[1]/ } }"'
+
 # search the $PATH for all occurances of argument 1
 # usage: pfind file
 alias pfind='perl -e "for\$p(split/:/,\$ENV{PATH}){ opendir P,\$p; for(readdir P){ print \"\$p/\$_\n\"if/\$ARGV[0]/ } }"'
+
 # search for file names
 alias gfind='find . 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
 alias gffind='find . -type f 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
 alias jfind='find src 2> /dev/null | /bin/grep -vP "[.]sw[pnox]" | /bin/grep -P --color'
+
 # search Perl's @INC for argument $1
 # usage: incfind module
 alias incall='find `perl -E "say join \"\n\", @INC"` -type f 2> /dev/null | grep "[.](pm|pod)\$" | sort'
@@ -129,7 +132,7 @@ else
     alias ghistory='history | /bin/grep -P --color'
 fi
 alias gps='ps aux | head -1; ps aux | /bin/grep -v " /bin/grep " - | /bin/grep -P --color'
-alias glsof='lsof | head -1; lsof | /bin/grep -v " /bin/grep " - | /bin/grep -P --color'
+alias glsof='lsof 2> /dev/null | head -1; lsof 2> /dev/null | /bin/grep -v " /bin/grep " - | /bin/grep -P --color'
 
 ## From http://www.ukuug.org/events/linux2003/papers/bash_tips/
 
@@ -143,7 +146,6 @@ alias jobs='jobs -l'
 alias df='df-colour -h'
 alias watch='perl -e "while(1) { print qq{\e[2J\e[0;0H\e[K@ARGV\n\n}; system qq{@ARGV}; sleep 2 }"'
 #perl -e 'while(1) {print "\e[2J\e[0;0H\e[K@ARGV\n\n"; system "@ARGV"; sleep 2 }' ps auxf '| grep -P --color=yes mmssend'
-
 
 ## Tar simplifications
 alias tgz='tar -czf'
@@ -161,9 +163,24 @@ alias jsontidy='json_pp -f json -t json -json_opt relaxed,pretty,allow_singlequo
 alias yamltidy='json_xs -f yaml -t yaml'
 
 # Touch pad toggling
-
 alias padoff='xinput -disable 14'
 alias padon='xinput -enable 14'
+alias touchpad-off='xinput list | grep TouchPad | perl -nlE '\''/id=(\d+)/; system qq{xinput set-prop $1 "Device Enabled" 0}'\'
+
+# chromium aliases
+alias chromium-gs3='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (Linux; U; Android 4.0.4; en-au; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" 2> /dev/null > /dev/null'
+alias chromium-ip3='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16" 2> /dev/null > /dev/null'
+alias chromium-ipad='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10" 2> /dev/null > /dev/null'
+alias chromium-ipad2='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X; en-us) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3" 2> /dev/null > /dev/null'
+
+# cpanm-install
+alias cpanm-install='wget -O- http://cpanmin.us | sudo perl - App::cpanminus'
+
+# wget
+alias wget='wget -c'
+
+# realclear
+alias realclear='perl -le "print q{ } for 0..999"'
 
 ## Un-characterised
 
@@ -186,20 +203,3 @@ alias gitlogcount='git log | grep Author | perl -nle "(\$a) = /<([^>]+)>/; \$ENV
 alias hlist="hlist -e 'Build|_build|blib|META.yml|tags|.sw[pnox]\$'"
 
 alias perle='perl -MData::Dumper -MPath::Tiny'
-
-alias chromium-gs3='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (Linux; U; Android 4.0.4; en-au; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" 2> /dev/null > /dev/null'
-alias chromium-ip3='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16" 2> /dev/null > /dev/null'
-alias chromium-ipad='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10" 2> /dev/null > /dev/null'
-alias chromium-ipad2='chromium-browser --disable-web-security --user-agent="Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X; en-us) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3" 2> /dev/null > /dev/null'
-#alias chromium-gs3='chromium-browser --disable-web-security --user-agent="" 2> /dev/null > /dev/null'
-
-# Node related aliases
-#alias gr='grunt --config gruntfile.js'
-
-# cpanm-install
-alias cpanm-install='wget -O- http://cpanmin.us | sudo perl - App::cpanminus'
-alias touchpad-off='xinput list | grep TouchPad | perl -nlE '\''/id=(\d+)/; system qq{xinput set-prop $1 "Device Enabled" 0}'\'
-
-# wget
-alias wget='wget -c'
-

@@ -44,3 +44,4 @@ memberservices05-*
 .dumbo-ctrl.rc
 regen.pl
 .ide.yml
+.vim/view
