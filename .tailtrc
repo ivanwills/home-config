@@ -250,6 +250,13 @@ configs:
           - !!perl/hash:Tail::Tool::Regex
             enabled: 0
             regex: !!perl/regexp (?-xism:NScreens::UserSubscriptions|NScreens::Auth|NScreens::Systems::OIETS|NScreens::Session)
+      - !!perl/hash:Tail::Tool::Plugin::Ignore
+        many: 0
+        post: 0
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            enabled: 1
+            regex: !!perl/regexp (?-xism:no\sip\sranges\sdefined\sin\s'ips[.]conf')
   mojo:
     post_process:
       - !!perl/hash:Tail::Tool::Plugin::Highlight
