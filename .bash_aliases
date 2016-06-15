@@ -44,7 +44,8 @@ alias lld="ls | perl -nle 'print \$_ if -d \$_' | xargs ls -dlAF --color"
 alias ils='find . 2>/dev/null | grep "~|[.]sw[nmopq]"'
 
 ## some aliases for tree
-alias treepl="tree -I '_build|blib|*META*|MANIFEST*|LICENSE|Changes'"
+alias treepl="tree -I '_build|blib|*META*|MANIFEST*|LICENSE|Changes|.git'"
+alias treejs="tree -I 'node_modules|.git'"
 
 ## common error aliases
 alias 'cd..'='cd ..'
