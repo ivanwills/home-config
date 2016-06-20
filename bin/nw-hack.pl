@@ -18,26 +18,21 @@ use Data::Dumper qw/Dumper/;
 use English qw/ -no_match_vars /;
 use FindBin qw/$Bin/;
 use Path::Tiny;
+use YAML::Syck;
+use File::Temp qw/tempfile/;
 
 our $VERSION = version->new('0.0.1');
 my ($name)   = $PROGRAM_NAME =~ m{^.*/(.*?)$}mxs;
 
 my %option = (
+    config  => $ENV{HOME} . '/.nw-hack.yml',
     dev     => 'tun0',
     verbose => 0,
     man     => 0,
     help    => 0,
     VERSION => 0,
 );
-my %routes = (
-    '211.29.157.0'  => '255.255.255.0',
-    '10.0.0.0'      => '255.0.0.0',
-    '58.108.128.0'  => '255.255.255.0',
-    '198.142.118.0' => '255.255.255.0',
-    '198.142.198.0' => '255.255.255.0',
-    '172.24.226.10' => '255.255.255.255',
-    '172.24.224.10' => '255.255.255.255',
-);
+my $config;
 
 if ( !@ARGV ) {
     pod2usage( -verbose => 1 );
@@ -52,6 +47,9 @@ sub main {
         \%option,
         'dev|device|d=s',
         'del',
+        'host|h',
+        'username|u=s',
+        'config|c',
         'verbose|v+',
         'man',
         'help',
@@ -70,30 +68,80 @@ sub main {
     }
 
     # do stuff here
+    $config = eval { LoadFile($option{config}) } || {};
+
+    if ( $option{host} ) {
+        host();
+        exit;
+    }
+
     my $type = $option{del} ? 'del' : 'add';
-    for my $route (keys %routes) {
-        my @cmd = ('route', $type, '-net', $route, 'netmask', $routes{$route}, 'dev', $option{dev} );
+    for my $route (keys %{ $config->{routes} }) {
+        my @cmd = ('sudo', 'route', $type, '-net', $route, 'netmask', $config->{routes}{$route}, 'dev', $option{dev} );
         warn join ' ', @cmd, "\n" if $option{verbose};
         return if $option{test};
         system @cmd;
     }
 
+    hosts($option{del});
+
     return;
+}
+
+sub host {
+
+    my $data = `ssh $option{username}\@$config->{landing} 'host $ARGV[0]'`;
+    my ($server, $ip) = $data =~ /^([\w.]+) \s+ has \s+ address \s+ ([\d.]+)$/xms;
+
+    if ( !$server || !$ip ) {
+        die "Can't determine the IP address for $ARGV[0] (got $data,$server:$ip)!\n";
+    }
+
+    $config->{hosts}{$server} = $ip;
+
+    DumpFile($option{config}, $config);
+
+    return hosts($option{del});
+}
+
+sub hosts {
+    my ($remove) = @_;
+    my $file  = path(qw{ / etc hosts });
+    my $hosts = $file->slurp;
+
+    return if !$config->{hosts};
+
+    chomp $hosts;
+    $hosts .= "\n";
+
+    for my $host (sort keys %{ $config->{hosts} }) {
+        $hosts =~ s/$config->{hosts}{$host}\t$host\n//gxms;
+
+        if ( ! $remove ) {
+            $hosts .= "$config->{hosts}{$host}\t$host\n";
+        }
+    }
+
+    my ($fh, $tempfile) = tempfile();
+    print {$fh} $hosts;
+    warn $tempfile;
+
+    system 'sudo', 'cp', $tempfile, $file;
 }
 
 __DATA__
 
 =head1 NAME
 
-<Name> - <One-line description of commands purpose>
+nw-hack.pl - <One-line description of commands purpose>
 
 =head1 VERSION
 
-This documentation refers to <Name> version 0.0.1
+This documentation refers to nw-hack.pl version 0.0.1
 
 =head1 SYNOPSIS
 
-   <Name> [option]
+   nw-hack.pl [option]
 
  OPTIONS:
   -o --other         other option
@@ -101,7 +149,7 @@ This documentation refers to <Name> version 0.0.1
   -v --verbose       Show more detailed option
      --version       Prints the version information
      --help          Prints this help information
-     --man           Prints the full documentation for <Name>
+     --man           Prints the full documentation for nw-hack.pl
 
 =head1 DESCRIPTION
 
