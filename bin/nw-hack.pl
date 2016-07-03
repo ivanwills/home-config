@@ -26,17 +26,12 @@ my ($name)   = $PROGRAM_NAME =~ m{^.*/(.*?)$}mxs;
 
 my %option = (
     config  => $ENV{HOME} . '/.nw-hack.yml',
-    dev     => 'tun0',
     verbose => 0,
     man     => 0,
     help    => 0,
     VERSION => 0,
 );
 my $config;
-
-if ( !@ARGV ) {
-    pod2usage( -verbose => 1 );
-}
 
 main();
 exit 0;
@@ -74,6 +69,8 @@ sub main {
         host();
         exit;
     }
+
+    $option{dev} ||= $config->{device};
 
     my $type = $option{del} ? 'del' : 'add';
     for my $route (keys %{ $config->{routes} }) {
