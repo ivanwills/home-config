@@ -121,7 +121,7 @@ sub hosts {
 
     my ($fh, $tempfile) = tempfile();
     print {$fh} $hosts;
-    warn $tempfile;
+    warn $tempfile if $option{verbose};
 
     system 'sudo', 'cp', $tempfile, $file;
 }
@@ -130,17 +130,17 @@ __DATA__
 
 =head1 NAME
 
-nw-hack.pl - A quick way for setting up temporary network routes/and host mappings
+nw-hack - A quick way for setting up temporary network routes/and host mappings
 
 =head1 VERSION
 
-This documentation refers to nw-hack.pl version 0.0.1
+This documentation refers to nw-hack version 0.0.1
 
 =head1 SYNOPSIS
 
-   nw-hack.pl [(-d|--device)[=]name]
-   nw-hack.pl --del  [(-d|--device)[=]name]
-   nw-hack.pl --host [--username[=]user] host1 [host2 ...]
+   nw-hack [(-d|--device)[=]name]
+   nw-hack --del  [(-d|--device)[=]name]
+   nw-hack --host [--username[=]user] host1 [host2 ...]
 
  OPTIONS:
   -d --device[=]str
@@ -156,7 +156,7 @@ This documentation refers to nw-hack.pl version 0.0.1
   -v --verbose  Show more detailed option
      --version  Prints the version information
      --help     Prints this help information
-     --man      Prints the full documentation for nw-hack.pl
+     --man      Prints the full documentation for nw-hack
 
 =head1 DESCRIPTION
 
