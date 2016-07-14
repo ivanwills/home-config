@@ -144,7 +144,7 @@ alias hl='/bin/grep -C 9999 --color=ALWAYS -P'
 alias scp='scp -pr'
 alias dirs='dirs -v'
 alias jobs='jobs -l'
-alias df='df-colour -h'
+alias df='df-colour'
 alias watch='perl -e "while(1) { print qq{\e[2J\e[0;0H\e[K@ARGV\n\n}; system qq{@ARGV}; sleep 2 }"'
 #perl -e 'while(1) {print "\e[2J\e[0;0H\e[K@ARGV\n\n"; system "@ARGV"; sleep 2 }' ps auxf '| grep -P --color=yes mmssend'
 
