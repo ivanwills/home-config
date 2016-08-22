@@ -21,7 +21,8 @@ editor:
     files:
         lib:
             - lib/**/*.pm
-            - lib/**/*.pod
+        pod:
+            - '**/*.pod'
         bin:
             - bin/*
         test:
