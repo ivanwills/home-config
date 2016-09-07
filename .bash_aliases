@@ -45,7 +45,7 @@ alias ils='find . 2>/dev/null | grep "~|[.]sw[nmopq]"'
 
 ## some aliases for tree
 alias treepl="tree -I '_build|blib|*META*|MANIFEST*|LICENSE|Changes|cover_db|node_modules|.git'"
-alias treejs="tree -I 'node_modules|tmp|.git|coverage/'"
+alias treejs="tree -I 'node_modules|tmp|.git|coverage'"
 
 ## common error aliases
 alias 'cd..'='cd ..'
