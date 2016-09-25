@@ -251,6 +251,12 @@ _vtide() {
 }
 complete -F _vtide vtide
 
+# New gitignore helper
+_gitignore() {
+    COMPREPLY=($(gitignore --auto-complete ${COMP_WORDS[1]} -- ${COMP_WORDS[@]}))
+}
+complete -F _gitignore gitignore
+
 # group-git helper
 _group-git() {
     COMPREPLY=()
