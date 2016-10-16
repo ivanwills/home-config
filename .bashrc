@@ -33,12 +33,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# Check if there is a local configuration file to augment this one
-
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
-fi
-
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -220,6 +214,12 @@ export HTML_TIDY=~/.html-tidy.rc
 
 umask ug=rwx,o=rx
 
+# Check if there is a local configuration file to augment this one
+
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
+
 # New devmode helper
 _devmode() {
     local cur prev opts
@@ -247,7 +247,7 @@ complete -F _devmode2 devmode2
 
 # New vtide helper
 _vtide() {
-    COMPREPLY=($(vtide --auto-complete ${COMP_WORDS[1]} -- ${COMP_WORDS[@]}))
+    COMPREPLY=($(vtide --auto-complete ${COMP_CWORD} -- ${COMP_WORDS[@]}))
 }
 complete -F _vtide vtide
 
@@ -257,10 +257,16 @@ _gitignore() {
 }
 complete -F _gitignore gitignore
 
+# New golp helper
+_golp() {
+    COMPREPLY=($(golp --gulpfile node_modules/lux-core/gulpTasks.js --auto-complete ${COMP_WORDS[1]} -- ${COMP_WORDS[@]}))
+}
+complete -F _golp golp
+
 # group-git helper
 _group-git() {
     COMPREPLY=()
-    local sonames=$(group-git --auto-complete --current "${COMP_CWORD}" -- ${COMP_WORDS[@]})
+    local sonames=$(group-git --auto-complete "${COMP_CWORD}" -- ${COMP_WORDS[@]})
     COMPREPLY=($(compgen -W "${sonames}" -- ${COMP_WORDS[COMP_CWORD]}))
 }
 complete -F _group-git group-git
@@ -282,6 +288,12 @@ _v() {
 }
 complete -F _v v
 
+# lux auto complete helper
+_lux() {
+    COMPREPLY=($(lux --auto-complete ${COMP_WORDS[1]} --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _lux lux
+
 # apparently this will stop screen from hanging
 tty --silent && stty -ixon -ixoff
 
@@ -289,10 +301,6 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
     if [ `which perlbrew` ]; then
         source ~/perl5/perlbrew/etc/bashrc
     fi
-fi
-
-if [ -s $HOME/.nvm/nvm.sh ]; then
-    source $HOME/.nvm/nvm.sh # This loads Node version manager
 fi
 
 if [ -s $HOME/.rvm/scripts/rvm ]; then
@@ -346,3 +354,8 @@ export AUTOSSH_PORT=0
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
+if [ -s $HOME/.nvm/nvm.sh ]; then
+    source $HOME/.nvm/nvm.sh # This loads Node version manager
+fi
+
