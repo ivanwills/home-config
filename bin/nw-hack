@@ -77,7 +77,10 @@ sub main {
         my @cmd = ('sudo', 'route', $type, '-net', $route, 'netmask', $config->{routes}{$route}, 'dev', $option{dev} );
         warn join ' ', @cmd, "\n" if $option{verbose};
         return if $option{test};
-        system @cmd;
+        my $err = system @cmd;
+        if ($err) {
+            warn "Command that errored: '" . (join ' ', @cmd) . "'\n";
+        }
     }
 
     hosts($option{del});
