@@ -50,7 +50,8 @@
     show-root-folder = rev-parse --show-toplevel
     ack     = grep --break --heading --line-number -P
     stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
-    update  = !git fetch origin && git merge --no-edit origin/master && git push
+    update  = !git add . && git stash && git fetch origin && git merge --no-edit origin/master && git push && git stash pop && git reset HEAD
+    up      = !git fetch origin && git merge --no-edit origin/master && git push
 #[receive]
 #    denyCurrentBranch = warn
 [core]
@@ -66,6 +67,7 @@
     ff         = false
 [workflow]
     release = branch=^origin/master$
+    max-history = 10
 [grep]
     extendRegexp = true
 [credential]
