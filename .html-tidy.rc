@@ -85,7 +85,7 @@
 #wrap-script-literals        Boolean    no
 #wrap-sections               Boolean    yes
 #write-back                  Boolean    no
-new-blocklevel-tags: ux-row ux-col
+#new-blocklevel-tags: ux-row ux-col
 #new-empty-tags     :
 #new-inline-tags    :
 #new-pre-tags       :
