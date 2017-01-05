@@ -290,7 +290,7 @@ complete -F _v v
 
 # lux auto complete helper
 _lux() {
-    COMPREPLY=($(lux --auto-complete ${COMP_WORDS[1]} --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+    COMPREPLY=($(lux --auto-complete "${COMP_WORDS[1]}" --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
 }
 complete -F _lux lux
 
