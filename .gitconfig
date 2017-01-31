@@ -76,3 +76,5 @@
 	templatedir = /home/dev/git-hooks/hooks
 [helper]
 	add-jira = true
+[helpers]
+	add-jira = true
