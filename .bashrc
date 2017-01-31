@@ -358,3 +358,5 @@ export AUTOSSH_PORT=0
 if [ -s $HOME/.nvm/nvm.sh ]; then
     source $HOME/.nvm/nvm.sh # This loads Node version manager
 fi
+export WEBDEV_ENV_DIR=/home/ivan/1P/OnePortal-Tools
+export WEBDEV_FRONTEND_DIR=/home/ivan/1P/OnePortal-FrontEnd
