@@ -251,6 +251,12 @@ _vtide() {
 }
 complete -F _vtide vtide
 
+# New jenkins-cli helper
+_jenkins-cli() {
+    COMPREPLY=($(jenkins-cli --auto-complete ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _jenkins-cli jenkins-cli
+
 # New gitignore helper
 _gitignore() {
     COMPREPLY=($(gitignore --auto-complete ${COMP_WORDS[1]} -- ${COMP_WORDS[@]}))
@@ -293,6 +299,13 @@ _lux() {
     COMPREPLY=($(lux --auto-complete "${COMP_WORDS[1]}" --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
 }
 complete -F _lux lux
+
+# New jenkins-cli helper
+_jenkins-cli() {
+    perl -E 'warn 1; warn "jenkins-cli --auto-complete \"$ARGV[0]\" --current $ARGV[1] -- " . join " ", @ARGV; warn 2' "${COMP_WORDS[1]}" "${COMP_CWORD}" ${COMP_WORDS[@]}
+    COMPREPLY=($(jenkins-cli --auto-complete "${COMP_WORDS[1]}" --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _jenkins-cli jenkins-cli
 
 # apparently this will stop screen from hanging
 tty --silent && stty -ixon -ixoff
