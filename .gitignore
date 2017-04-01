@@ -36,8 +36,7 @@ memberservices05-*
 */optusmetv-content/css
 */optusmetv-content/pcatnew
 .regen-files
-.vim/bundle/vim-perl-variable-highlighter/
-.vim/bundle/YouCompleteMe/
+.vim/bundle/
 .vim/ftplugin/perl/editortools.vim
 .bash_local
 .cookies.json
