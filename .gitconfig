@@ -55,7 +55,7 @@
 #[receive]
 #    denyCurrentBranch = warn
 [core]
-    excludesfile = /home/dev/.gitignore
+    excludesfile = /home/ivan/.gitignore
     autocrlf     = input
     ignorecase   = false
     editor       = vim
@@ -73,7 +73,7 @@
 [credential]
 	helper = store
 [init]
-	templatedir = /home/dev/git-hooks/hooks
+	templatedir = /home/ivan/git-hooks/hooks
 [helper]
 	add-jira = true
 [helpers]
