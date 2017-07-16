@@ -2,4 +2,4 @@
 --verbose
 --comments
 --recurse
--MTest::Pretty
+#-MTest::Pretty
