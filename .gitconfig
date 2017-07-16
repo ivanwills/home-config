@@ -14,7 +14,7 @@
     changes = log --format=format:'        %s (%an)'
     ci      = commit
     cine    = commit --no-edit
-    co      = checkout
+    #co      = checkout
     coo     = checkout --ours
     cot     = checkout --theirs
     di      = diff --ignore-all-space
@@ -42,7 +42,6 @@
     parents = log --pretty=%P -n 1
     ph      = push
     pl      = pull
-    show-root-folder = rev-parse --show-toplevel
     s       = status
     stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
     st      = status
@@ -52,6 +51,8 @@
     up      = !git fetch origin && git merge --no-edit origin/master && git push
     url     = config remote.origin.url
     who     = shortlog -s --
+    root-folder = rev-parse --show-toplevel
+    name    = rev-parse --abbrev-ref HEAD
 #[receive]
 #    denyCurrentBranch = warn
 [core]
