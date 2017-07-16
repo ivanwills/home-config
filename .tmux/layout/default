@@ -1,5 +1,6 @@
 split-window -dh
-new-window 'local-npm --directory ~/.local-npm'
+#new-window 'local-npm --directory ~/.local-npm'
+new-window
 new-window
 new-window
 new-window
