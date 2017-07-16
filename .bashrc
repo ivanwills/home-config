@@ -178,6 +178,10 @@ if [ -x /sbin/init ]; then
     PATH=$PATH:/sbin
 fi
 
+if [ -s $HOME/.rvm/scripts/rvm ]; then
+    source $HOME/.rvm/scripts/rvm # This loads Ruby version manager
+fi
+
 # set up history
 shopt -s histappend
 #export PROMPT_COMMAND='history -a'
@@ -196,13 +200,12 @@ PATH=$PATH:/usr/local/bin
 PATH=$PATH:/opt/bin
 PATH=$PATH:/opt/sbin
 PATH=$PATH:/opt/perl
-PATH=$PATH:/home/ivan/src/rakudo-star-2011.07/install/bin/
-PATH=$PATH:~/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:./node_modules/.bin/
-PATH=$PATH:~/.meteor
-PATH=$PATH::~/bin/adt-bundle/sdk/platform-tools:~/bin/adt-bundle/sdk/tools
+PATH=$PATH:~/bin/adt-bundle/sdk/platform-tools:~/bin/adt-bundle/sdk/tools
+PATH=$PATH:~/bin/android-sdk-linux/platform-tools/
+PATH=$PATH:~/node_modules/.bin
 PATH=~/.rakudobrew/bin:$PATH
-PATH=`perl -le '%p; print join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ } split /\s*:\s*/, $ENV{PATH}'`
+PATH=$PATH:~/.aws/bin
+PATH=`perl -le '%p; print join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ && (/^[.]/ || -d $_) } split /\s*:\s*/, $ENV{PATH}'`
 export PATH
 export CDPATH='.:..:../..:~/links:~'
 export VISUAL=vim
@@ -239,6 +242,23 @@ _devmode() {
 }
 complete -F _devmode devmode
 
+# New lux gulp helper
+_gulp() {
+    #grep -hoP 'args[.]\w+' gulpfile.js tasks/* | sort | uniq
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="--component --currentBranch -h --hash --isVersioned -n --new -o --old --repoId --repoURL --requireAllTags --sideFileClassifiers --sideFiles --sideFilesTypes --skipBundle --snapshot --tags --tasks --widget"
+    if [[ ${cur} == -* ]]; then
+        COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+    else
+        local sonames=($(gulp --tasks | grep "${cur}"))
+        COMPREPLY=($(compgen -W "${sonames}" -- ${cur}))
+    fi
+}
+complete -F _gulp gulp
+
 # New devmode2 helper
 _devmode2() {
     COMPREPLY=($(devmode2 --auto --current "${COMP_CWORD}" -- ${COMP_WORDS[@]}))
@@ -250,12 +270,6 @@ _vtide() {
     COMPREPLY=($(vtide --auto-complete ${COMP_CWORD} -- ${COMP_WORDS[@]}))
 }
 complete -F _vtide vtide
-
-# New jenkins-cli helper
-_jenkins-cli() {
-    COMPREPLY=($(jenkins-cli --auto-complete ${COMP_CWORD} -- ${COMP_WORDS[@]}))
-}
-complete -F _jenkins-cli jenkins-cli
 
 # New gitignore helper
 _gitignore() {
@@ -316,10 +330,6 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
     fi
 fi
 
-if [ -s $HOME/.rvm/scripts/rvm ]; then
-    source $HOME/.rvm/scripts/rvm # This loads Ruby version manager
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -371,5 +381,5 @@ export AUTOSSH_PORT=0
 if [ -s $HOME/.nvm/nvm.sh ]; then
     source $HOME/.nvm/nvm.sh # This loads Node version manager
 fi
-export WEBDEV_ENV_DIR=/home/ivan/1P/OnePortal-Tools
-export WEBDEV_FRONTEND_DIR=/home/ivan/1P/OnePortal-FrontEnd
+export WEBDEV_ENV_DIR=/home/dev/1P/front-end-tools
+export WEBDEV_FRONTEND_DIR=/home/dev/1P/front-end
