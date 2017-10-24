@@ -53,6 +53,7 @@
     who     = shortlog -s --
     root-folder = rev-parse --show-toplevel
     name    = rev-parse --abbrev-ref HEAD
+    subdate = submodule update --init --recursive --remote
 #[receive]
 #    denyCurrentBranch = warn
 [core]
