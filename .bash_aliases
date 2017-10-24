@@ -44,7 +44,7 @@ alias lld="ls | perl -nle 'print \$_ if -d \$_' | xargs ls -dlAF --color"
 alias ils='find . 2>/dev/null | grep "~|[.]sw[nmopq]"'
 
 ## some aliases for tree
-alias treepl="tree -I '_build|blib|*META*|MANIFEST*|LICENSE|Changes|cover_db|node_modules|.git'"
+alias treepl="tree -I '_build|blib|*META*|MANIFEST*|LICENSE|Changes|cover_db|prof|node_modules|.git'"
 alias treejs="tree -I 'node_modules|tmp|.git|coverage'"
 
 ## common error aliases
@@ -145,7 +145,8 @@ alias scp='scp -pr'
 alias dirs='dirs -v'
 alias jobs='jobs -l'
 alias df='df-colour'
-alias watch='perl -e "while(1) { print qq{\e[2J\e[0;0H\e[K@ARGV\n\n}; system qq{@ARGV}; sleep 2 }"'
+#alias watch='perl -e "while(1) { print qq{\e[2J\e[0;0H\e[K@ARGV\n\n}; system qq{@ARGV}; sleep 2 }"'
+alias watch='watch -c'
 #perl -e 'while(1) {print "\e[2J\e[0;0H\e[K@ARGV\n\n"; system "@ARGV"; sleep 2 }' ps auxf '| grep -P --color=yes mmssend'
 
 ## Tar simplifications
@@ -206,4 +207,4 @@ alias gitlogcount='git log | grep Author | perl -nle "(\$a) = /<([^>]+)>/; \$ENV
 
 alias hlist="hlist -e 'Build|_build|blib|META.yml|tags|.sw[pnox]\$'"
 
-alias perle='perl -MData::Dumper -MPath::Tiny'
+alias perle='perl -MData::Dumper -MPath::Tiny -MJSON::XS=decode_json,encode_json -MYAML::XS=Dump,Load,DumpFile,LoadFile'
