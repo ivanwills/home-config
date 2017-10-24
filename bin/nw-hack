@@ -79,7 +79,7 @@ sub main {
         return if $option{test};
         my $err = system @cmd;
         if ($err) {
-            warn "Command that errored: '" . (join ' ', @cmd) . "'\n";
+            die "Command that errored: '" . (join ' ', @cmd) . "'\n";
         }
     }
 
