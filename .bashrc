@@ -373,3 +373,7 @@ if [ -s $HOME/.nvm/nvm.sh ]; then
 fi
 export WEBDEV_ENV_DIR=/home/ivan/1P/OnePortal-Tools
 export WEBDEV_FRONTEND_DIR=/home/ivan/1P/OnePortal-FrontEnd
+
+if [ "$(which awless)" ]; then
+    source $(awless completion bash)
+fi
