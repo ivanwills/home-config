@@ -250,6 +250,27 @@ configs:
           - !!perl/hash:Tail::Tool::Regex
             enabled: 0
             regex: !!perl/regexp (?-xism:NScreens::UserSubscriptions|NScreens::Auth|NScreens::Systems::OIETS|NScreens::Session)
+      - !!perl/hash:Tail::Tool::Plugin::Ignore
+        many: 0
+        post: 0
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            enabled: 1
+            regex: !!perl/regexp (?-xism:no\sip\sranges\sdefined\sin\s'ips[.]conf')
+      - !!perl/hash:Tail::Tool::Plugin::Ignore
+        many: 0
+        post: 0
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            enabled: 1
+            regex: !!perl/regexp (?-xism:NScreens::Systems::ESB::_post_put_delete_json (214 [@]credentials|215 .json = '."dto:customerSearch))
+      - !!perl/hash:Tail::Tool::Plugin::Ignore
+        many: 0
+        post: 0
+        regex:
+          - !!perl/hash:Tail::Tool::Regex
+            enabled: 1
+            regex: !!perl/regexp (?-xism:App::Conductor::(?:Config::sms|HSS::read|Atomic)|NScreens::Systems::ESB::ShortMessage|Cleaned up old IMSI|appears to be lost!)
   mojo:
     post_process:
       - !!perl/hash:Tail::Tool::Plugin::Highlight
