@@ -20,7 +20,7 @@
     di      = diff --ignore-all-space
     ff      = pull --ff -r
     forward = pull --ff -r
-    le      = log --format=format:'%Cred%h%Creset %s %Cgreen%ae %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --first-parent -n 20
+    le      = log --format=format:'%Cred%h%Creset %s %Cgreen%ae %C(red bold)%ai%Creset %C(blue bold)%d%Creset'
     lgf     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --first-parent
     lg      = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph
     lgme    = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph               --author=ivan.wills --author='Ivan Wills'
@@ -54,6 +54,8 @@
     root-folder = rev-parse --show-toplevel
     name    = rev-parse --abbrev-ref HEAD
     subdate = submodule update --init --recursive --remote
+    revne   = revert --no-edit
+    branch-age = branch --format='%(authordate)%09%(objectname) %(*refname:lstrip=2)%09%(authorname)'
 #[receive]
 #    denyCurrentBranch = warn
 [core]
