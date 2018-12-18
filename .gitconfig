@@ -9,44 +9,47 @@
     ui     = auto
 [alias]
     ack     = grep --break --heading --line-number -P
-    br      = branch
-    #cat     = show
-    changes = log --format=format:'        %s (%an)'
     ci      = commit
     cine    = commit --no-edit
+    s       = status
+    st      = status
+    br      = branch
+    sw      = switch
     #co      = checkout
     coo     = checkout --ours
     cot     = checkout --theirs
     di      = diff --ignore-all-space
     ff      = pull --ff -r
     forward = pull --ff -r
+    who     = shortlog -s --
+    cat     = show
+    url     = config remote.origin.url
+    tags    = tag
     le      = log --format=format:'%Cred%h%Creset %s %Cgreen%ae %C(red bold)%ai%Creset %C(blue bold)%d%Creset'
     lgf     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --first-parent
     lg      = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph
     lgme    = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph               --author=ivan.wills --author='Ivan Wills'
+    logme   = log --author=ivan.wills --author='Ivan Wills'
     lgv     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --name-status
     lgvme   = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --graph --name-status --author=ivan.wills --author='Ivan Wills'
     l       = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset' --first-parent -n 20
     lme     = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'                       --author=ivan.wills --author='Ivan Wills'
     log1    = log --pretty=oneline
     log1me  = log --pretty=oneline                                                                                                   --author=ivan.wills --author='Ivan Wills'
-    logd    = log --decorate --graph
     logdme  = log --decorate --graph                                                                                                 --author=ivan.wills --author='Ivan Wills'
-    logl    = log --decorate --name-status
     loglme  = log --decorate --name-status                                                                                           --author=ivan.wills --author='Ivan Wills'
-    logme   = log --author=ivan.wills --author='Ivan Wills'
+    logd    = log --decorate --graph
+    logl    = log --decorate --name-status
     lpg     = log --decorate --graph --name-status
     lpgme   = log --decorate --graph --name-status                                                                                   --author=ivan.wills --author='Ivan Wills'
     lp      = log -p
     lpme    = log -p                                                                                                                 --author=ivan.wills --author='Ivan Wills'
     parents = log --pretty=%P -n 1
-    ph      = push
+    changes = log --format=format:'        %s (%an)'
     pl      = pull
-    s       = status
+    ph      = push
+    show-root-folder = rev-parse --show-toplevel
     stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
-    st      = status
-    sw      = switch
-    tags    = tag
     update  = !git add . && git stash && git fetch origin && git merge --no-edit origin/master && git push && git stash pop && git reset HEAD
     up      = !git fetch origin && git merge --no-edit origin/master && git push
     url     = config remote.origin.url
