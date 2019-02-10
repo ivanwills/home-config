@@ -51,3 +51,4 @@ regen.pl
 yarn.lock
 package-lock.json
 component-css.json*
+.tmux/plugins/
