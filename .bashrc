@@ -205,6 +205,7 @@ PATH=$PATH:~/bin/android-sdk-linux/platform-tools/
 PATH=$PATH:~/node_modules/.bin
 PATH=~/.rakudobrew/bin:$PATH
 PATH=$PATH:~/.aws/bin
+PATH=$PATH:~/.local/bin
 PATH=`perl -le '%p; print join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ && (/^[.]/ || -d $_) } split /\s*:\s*/, $ENV{PATH}'`
 export PATH
 export CDPATH='.:..:../..:~/links:~'
@@ -271,6 +272,12 @@ _vtide() {
 }
 complete -F _vtide vtide
 
+# New jenkins-cli helper
+_jenkins-cli() {
+    COMPREPLY=($(jenkins-cli --auto-complete ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _jenkins-cli jenkins-cli
+
 # New gitignore helper
 _gitignore() {
     COMPREPLY=($(gitignore --auto-complete ${COMP_WORDS[1]} -- ${COMP_WORDS[@]}))
@@ -321,6 +328,13 @@ _jenkins-cli() {
 }
 complete -F _jenkins-cli jenkins-cli
 
+# bb-cli helper
+_bb-cli() {
+    COMPREPLY=($(bb-cli --auto-complete ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _bb-cli bb-cli
+
+
 # apparently this will stop screen from hanging
 tty --silent && stty -ixon -ixoff
 
@@ -328,6 +342,10 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
     if [ `which perlbrew` ]; then
         source ~/perl5/perlbrew/etc/bashrc
     fi
+fi
+
+if [ -s $HOME/.rvm/scripts/rvm ]; then
+    source $HOME/.rvm/scripts/rvm # This loads Ruby version manager
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -343,15 +361,15 @@ if [ ! -h "/tmp/.$USER" ]; then
     fi
 fi
 
-if [ -x `which mvn 2> /dev/null` ]; then
-    if [ -x `which tee 2> /dev/null` ]; then
-        if [ -x `which tailt 2> /dev/null` ]; then
-            mvn() {
-                time /usr/bin/mvn $@ | tee ~/log/mvn-`pwd | perl -pe 's{.*/}{}'`.log | tailt -c liferay
-            }
-        fi
-    fi
-fi
+#if [ -x `which mvn 2> /dev/null` ]; then
+#    if [ -x `which tee 2> /dev/null` ]; then
+#        if [ -x `which tailt 2> /dev/null` ]; then
+#            mvn() {
+#                time /usr/bin/mvn $@ | tee ~/log/mvn-`pwd | perl -pe 's{.*/}{}'`.log | tailt -c liferay
+#            }
+#        fi
+#    fi
+#fi
 
 tmw() {
     tmux split-window -dh "$*"
@@ -378,8 +396,15 @@ export AUTOSSH_PORT=0
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
-if [ -s $HOME/.nvm/nvm.sh ]; then
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
     source $HOME/.nvm/nvm.sh # This loads Node version manager
 fi
-export WEBDEV_ENV_DIR=/home/dev/1P/front-end-tools
-export WEBDEV_FRONTEND_DIR=/home/dev/1P/front-end
+if [ "$NVM_USE" ]; then
+    nvm use "$NVM_USE"
+fi
+export WEBDEV_ENV_DIR=$HOME/1P/front-end-tools
+export WEBDEV_FRONTEND_DIR=$HOME/1P/front-end
+
+if [ "$(which awless)" ]; then
+    source $(awless completion bash)
+fi
