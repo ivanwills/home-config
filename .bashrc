@@ -346,6 +346,8 @@ fi
 
 if [ -s $HOME/.rvm/scripts/rvm ]; then
     source $HOME/.rvm/scripts/rvm # This loads Ruby version manager
+elif [ -s /etc/profile.d/rvm.sh ]; then
+    source /etc/profile.d/rvm.sh
 fi
 
 # enable programmable completion features (you don't need to enable
