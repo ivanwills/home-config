@@ -202,6 +202,7 @@ PATH=$PATH:./node_modules/.bin/
 PATH=$PATH:~/.meteor
 PATH=$PATH::~/bin/adt-bundle/sdk/platform-tools:~/bin/adt-bundle/sdk/tools
 PATH=~/.rakudobrew/bin:$PATH
+PATH=$PATH:~/.cargo/bin
 PATH=`perl -le '%p; print join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ } split /\s*:\s*/, $ENV{PATH}'`
 export PATH
 export CDPATH='.:..:../..:~/links:~'
@@ -219,6 +220,7 @@ umask ug=rwx,o=rx
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
+
 
 # New devmode helper
 _devmode() {
@@ -307,6 +309,13 @@ _jenkins-cli() {
 }
 complete -F _jenkins-cli jenkins-cli
 
+# bb-cli helper
+_bb-cli() {
+    COMPREPLY=($(bb-cli --auto-complete ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _bb-cli bb-cli
+
+
 # apparently this will stop screen from hanging
 tty --silent && stty -ixon -ixoff
 
@@ -333,15 +342,15 @@ if [ ! -h "/tmp/.$USER" ]; then
     fi
 fi
 
-if [ -x `which mvn 2> /dev/null` ]; then
-    if [ -x `which tee 2> /dev/null` ]; then
-        if [ -x `which tailt 2> /dev/null` ]; then
-            mvn() {
-                time /usr/bin/mvn $@ | tee ~/log/mvn-`pwd | perl -pe 's{.*/}{}'`.log | tailt -c liferay
-            }
-        fi
-    fi
-fi
+#if [ -x `which mvn 2> /dev/null` ]; then
+#    if [ -x `which tee 2> /dev/null` ]; then
+#        if [ -x `which tailt 2> /dev/null` ]; then
+#            mvn() {
+#                time /usr/bin/mvn $@ | tee ~/log/mvn-`pwd | perl -pe 's{.*/}{}'`.log | tailt -c liferay
+#            }
+#        fi
+#    fi
+#fi
 
 tmw() {
     tmux split-window -dh "$*"
@@ -368,11 +377,15 @@ export AUTOSSH_PORT=0
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
-if [ -s $HOME/.nvm/nvm.sh ]; then
-    source $HOME/.nvm/nvm.sh # This loads Node version manager
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+    # This loads Node version manager
+    source $HOME/.nvm/nvm.sh > /dev/null 2>&1
 fi
-export WEBDEV_ENV_DIR=/home/ivan/1P/OnePortal-Tools
-export WEBDEV_FRONTEND_DIR=/home/ivan/1P/OnePortal-FrontEnd
+if [ "$NVM_USE" ]; then
+    nvm use "$NVM_USE"
+fi
+export WEBDEV_ENV_DIR=$HOME/1P/OnePortal-Tools
+export WEBDEV_FRONTEND_DIR=$HOME/1P/OnePortal-FrontEnd
 
 if [ "$(which awless)" ]; then
     source $(awless completion bash)

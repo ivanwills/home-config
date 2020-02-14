@@ -44,7 +44,7 @@ alias lld="ls | perl -nle 'print \$_ if -d \$_' | xargs ls -dlAF --color"
 alias ils='find . 2>/dev/null | grep "~|[.]sw[nmopq]"'
 
 ## some aliases for tree
-alias treepl="tree -I '_build|blib|*META*|MANIFEST*|LICENSE|Changes|cover_db|node_modules|.git'"
+alias treepl="tree -I '_build|blib|*META*|MANIFEST*|LICENSE|Changes|cover_db|prof|node_modules|.git'"
 alias treejs="tree -I 'node_modules|tmp|.git|coverage'"
 
 ## common error aliases
@@ -92,6 +92,7 @@ git-merge-fix() {
 }
 alias gg="git grep"
 alias ga="git ack"
+alias gga="group-git ack"
 
 ## CVS
 if [ -x `which cmdaliaser 2> /dev/null` ]; then
@@ -115,7 +116,7 @@ alias cpuinfo='lscpu'
 alias gpumeminfo='grep -i --color memory --text /var/log/Xorg.0.log'
 
 alias ports='netstat -tulanp'
-alias ping='ping -c 3 -s.2'
+alias ping='ping -c 3'
 
 alias ipt='sudo /sbin/iptables'
 
@@ -197,6 +198,7 @@ alias module-starter='module-starter --mb --author="Ivan Wills" --email="ivan.wi
 alias ctags='ctags --exclude=blib --exclude=_build --exclude=Build --exclude=tmp'
 
 alias xcopy='xclip -selection clipboard'
+alias xpaste='xclip -out -selection clipboard'
 
 alias dietlog='chown www-data:www-data -R /tmp/diet*'
 
@@ -206,4 +208,7 @@ alias gitlogcount='git log | grep Author | perl -nle "(\$a) = /<([^>]+)>/; \$ENV
 
 alias hlist="hlist -e 'Build|_build|blib|META.yml|tags|.sw[pnox]\$'"
 
-alias perle='perl -MData::Dumper -MPath::Tiny'
+alias perle='perl -MData::Dumper -MPath::Tiny -MJSON::XS=decode_json,encode_json -MYAML::XS=Dump,Load,DumpFile,LoadFile'
+
+
+alias aem='cd "/home/ivan/aem/AEM6.1" &&  java -Dhttp.proxyHost=localhost -Dhttp.proxyPort=4502 -Denv=dev -debug -Djava.awt.headless=true -XX:MaxPermSize=512M -XX:-UseSplitVerifier -Xnoagent -Xmx2048M -Xmx2048M -Djava.compiler=NONE -Dsling.run.modes=local,author,crx2  -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=30305 -jar aem6-author-p4502.jar -nofork -gui &'

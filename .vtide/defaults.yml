@@ -27,6 +27,18 @@ editor:
             - bin/*
         test:
             - t/**/*.t
+        tests:
+            - test
+            - '!test-std-perl'
+        test-std-perl:
+            - t/00-load.t
+            - t/boilerplate.t
+            - t/critic.t
+            - t/kwalitee.t
+            - t/manifest.t
+            - t/pod-coverage.t
+            - t/pod.t
+            - t/spelling.t
 terminals:
   1:
     split: Hv0

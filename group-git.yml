@@ -2,3 +2,10 @@
 aliases:
     st: status -q
     ff: pull --ff -r true
+    ack: grep --break --heading --line-number -P --color=auto
+    me:
+        - log
+        - -n1
+        - --oneline
+        - --author=ivan.wills
+        - --author=Ivan Wills
