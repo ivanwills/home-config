@@ -203,6 +203,7 @@ PATH=$PATH:~/.meteor
 PATH=$PATH::~/bin/adt-bundle/sdk/platform-tools:~/bin/adt-bundle/sdk/tools
 PATH=~/.rakudobrew/bin:$PATH
 PATH=$PATH:~/.cargo/bin
+PATH=$PATH:~/.local/bin
 PATH=`perl -le '%p; print join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ } split /\s*:\s*/, $ENV{PATH}'`
 export PATH
 export CDPATH='.:..:../..:~/links:~'
