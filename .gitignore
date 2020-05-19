@@ -50,7 +50,6 @@ regen.pl
 .vtide/*
 .lux.json
 yarn.lock
-package-lock.json
 component-css.json*
 .tmux/plugins/
 homepage_1.json
