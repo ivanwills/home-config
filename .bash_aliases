@@ -9,8 +9,10 @@ alias afind='perl -e "for\$p(split/:/,\$ARGV[0]){ opendir P,\$p; for(readdir P){
 alias pfind='perl -e "for\$p(split/:/,\$ENV{PATH}){ opendir P,\$p; for(readdir P){ print \"\$p/\$_\n\"if/\$ARGV[0]/ } }"'
 
 # search for file names
-alias gfind='find . 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
-alias gffind='find . -type f 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
+alias gfind='find . 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS|node_modules)" | /bin/grep -P --color'
+alias gffind='find . -type f 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS|node_modules)" | /bin/grep -P --color'
+alias gfinda='find . 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
+alias gffinda='find . -type f 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
 alias jfind='find src 2> /dev/null | /bin/grep -vP "[.]sw[pnox]" | /bin/grep -P --color'
 
 # search Perl's @INC for argument $1
