@@ -302,6 +302,10 @@ _lux() {
     COMPREPLY=($(lux --auto-complete "${COMP_WORDS[1]}" --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
 }
 complete -F _lux lux
+_lix() {
+    COMPREPLY=($(lix --auto-complete "${COMP_WORDS[1]}" --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _lix lix
 
 # New jenkins-cli helper
 _jenkins-cli() {
