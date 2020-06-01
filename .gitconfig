@@ -70,6 +70,7 @@
     package-osg = pom -P instances/optussd/package.json -b 'master|release|project'
     history     = branch-history -un 20
     git         = "!g() { git $@; };  g"
+    wait        = watch do -1 -f package.json -r -- git ff
 #[receive]
 #    denyCurrentBranch = warn
 [core]
