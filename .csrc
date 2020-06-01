@@ -38,4 +38,8 @@
         definite = [.]sass-cache/
         definite = node_modules/
     </ignore>
+    <1pfe>
+        other_types = ftl
+        other_types = javascript
+    </1pfe>
 </file_types>

@@ -9,8 +9,10 @@ alias afind='perl -e "for\$p(split/:/,\$ARGV[0]){ opendir P,\$p; for(readdir P){
 alias pfind='perl -e "for\$p(split/:/,\$ENV{PATH}){ opendir P,\$p; for(readdir P){ print \"\$p/\$_\n\"if/\$ARGV[0]/ } }"'
 
 # search for file names
-alias gfind='find . 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
-alias gffind='find . -type f 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
+alias gfind='find . 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS|node_modules)" | /bin/grep -P --color'
+alias gffind='find . -type f 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS|node_modules)" | /bin/grep -P --color'
+alias gfinda='find . 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
+alias gffinda='find . -type f 2> /dev/null | /bin/grep -vP "([.](svn|git|bzr)|CVS|RCS)" | /bin/grep -P --color'
 alias jfind='find src 2> /dev/null | /bin/grep -vP "[.]sw[pnox]" | /bin/grep -P --color'
 
 # search Perl's @INC for argument $1
@@ -116,7 +118,7 @@ alias cpuinfo='lscpu'
 alias gpumeminfo='grep -i --color memory --text /var/log/Xorg.0.log'
 
 alias ports='netstat -tulanp'
-alias ping='ping -c 3 -s.2'
+alias ping='ping -c 3'
 
 alias ipt='sudo /sbin/iptables'
 
@@ -210,3 +212,6 @@ alias gitlogcount='git log | grep Author | perl -nle "(\$a) = /<([^>]+)>/; \$ENV
 alias hlist="hlist -e 'Build|_build|blib|META.yml|tags|.sw[pnox]\$'"
 
 alias perle='perl -MData::Dumper -MPath::Tiny -MJSON::XS=decode_json,encode_json -MYAML::XS=Dump,Load,DumpFile,LoadFile'
+
+
+alias aem='cd "/home/ivan/aem/AEM6.1" &&  java -Dhttp.proxyHost=localhost -Dhttp.proxyPort=4502 -Denv=dev -debug -Djava.awt.headless=true -XX:MaxPermSize=512M -XX:-UseSplitVerifier -Xnoagent -Xmx2048M -Xmx2048M -Djava.compiler=NONE -Dsling.run.modes=local,author,crx2  -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=30305 -jar aem6-author-p4502.jar -nofork -gui &'

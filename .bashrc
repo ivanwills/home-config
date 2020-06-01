@@ -202,6 +202,8 @@ PATH=$PATH:./node_modules/.bin/
 PATH=$PATH:~/.meteor
 PATH=$PATH::~/bin/adt-bundle/sdk/platform-tools:~/bin/adt-bundle/sdk/tools
 PATH=~/.rakudobrew/bin:$PATH
+PATH=$PATH:~/.cargo/bin
+PATH=$PATH:~/.local/bin
 PATH=`perl -le '%p; print join ":", grep {!/1\.5T/} grep { s{/$}{}; !$p{$_}++ } split /\s*:\s*/, $ENV{PATH}'`
 export PATH
 export CDPATH='.:..:../..:~/links:~'
@@ -219,6 +221,7 @@ umask ug=rwx,o=rx
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
+
 
 # New devmode helper
 _devmode() {
@@ -251,11 +254,23 @@ _vtide() {
 }
 complete -F _vtide vtide
 
+# New jenkins-cli helper
+_jenkins-cli() {
+    COMPREPLY=($(jenkins-cli --auto-complete ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _jenkins-cli jenkins-cli
+
 # New gitignore helper
 _gitignore() {
     COMPREPLY=($(gitignore --auto-complete ${COMP_WORDS[1]} -- ${COMP_WORDS[@]}))
 }
 complete -F _gitignore gitignore
+
+# New golp helper
+_golp() {
+    COMPREPLY=($(golp --gulpfile node_modules/lux-core/gulpTasks.js --auto-complete ${COMP_WORDS[1]} -- ${COMP_WORDS[@]}))
+}
+complete -F _golp golp
 
 # group-git helper
 _group-git() {
@@ -281,6 +296,30 @@ _v() {
     fi
 }
 complete -F _v v
+
+# lux auto complete helper
+_lux() {
+    COMPREPLY=($(lux --auto-complete "${COMP_WORDS[1]}" --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _lux lux
+_lix() {
+    COMPREPLY=($(lix --auto-complete "${COMP_WORDS[1]}" --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _lix lix
+
+# New jenkins-cli helper
+_jenkins-cli() {
+    perl -E 'warn 1; warn "jenkins-cli --auto-complete \"$ARGV[0]\" --current $ARGV[1] -- " . join " ", @ARGV; warn 2' "${COMP_WORDS[1]}" "${COMP_CWORD}" ${COMP_WORDS[@]}
+    COMPREPLY=($(jenkins-cli --auto-complete "${COMP_WORDS[1]}" --current ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _jenkins-cli jenkins-cli
+
+# bb-cli helper
+_bb-cli() {
+    COMPREPLY=($(bb-cli --auto-complete ${COMP_CWORD} -- ${COMP_WORDS[@]}))
+}
+complete -F _bb-cli bb-cli
+
 
 # apparently this will stop screen from hanging
 tty --silent && stty -ixon -ixoff
@@ -308,15 +347,15 @@ if [ ! -h "/tmp/.$USER" ]; then
     fi
 fi
 
-if [ -x `which mvn 2> /dev/null` ]; then
-    if [ -x `which tee 2> /dev/null` ]; then
-        if [ -x `which tailt 2> /dev/null` ]; then
-            mvn() {
-                time /usr/bin/mvn $@ | tee ~/log/mvn-`pwd | perl -pe 's{.*/}{}'`.log | tailt -c liferay
-            }
-        fi
-    fi
-fi
+#if [ -x `which mvn 2> /dev/null` ]; then
+#    if [ -x `which tee 2> /dev/null` ]; then
+#        if [ -x `which tailt 2> /dev/null` ]; then
+#            mvn() {
+#                time /usr/bin/mvn $@ | tee ~/log/mvn-`pwd | perl -pe 's{.*/}{}'`.log | tailt -c liferay
+#            }
+#        fi
+#    fi
+#fi
 
 tmw() {
     tmux split-window -dh "$*"
@@ -343,6 +382,16 @@ export AUTOSSH_PORT=0
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
-if [ -s $HOME/.nvm/nvm.sh ]; then
-    source $HOME/.nvm/nvm.sh # This loads Node version manager
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+    # This loads Node version manager
+    source $HOME/.nvm/nvm.sh > /dev/null 2>&1
+fi
+if [ "$NVM_USE" ]; then
+    nvm use "$NVM_USE"
+fi
+export WEBDEV_ENV_DIR=$HOME/1P/OnePortal-Tools
+export WEBDEV_FRONTEND_DIR=$HOME/1P/OnePortal-FrontEnd
+
+if [ "$(which awless)" ]; then
+    source $(awless completion bash)
 fi
