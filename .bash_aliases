@@ -189,6 +189,7 @@ alias realclear='perl -le "print q{ } for 0..999"'
 
 # node
 alias local-npm='local-npm --directory ~/.local-npm'
+alias nrun='time npm run'
 
 ## Un-characterised
 
