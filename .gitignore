@@ -68,3 +68,4 @@ ff*.json
 test*
 *.bak
 searchFeatureListingServlet.*.json
+.gelp-tasks

@@ -56,6 +56,7 @@ alias 'cd..'='cd ..'
 alias diff='diff -uN'
 alias vvd='vcsvimdiff'
 alias vd='vcsvimdiff -Rv'
+alias vmerge='vcsvimdiff -MA'
 alias v='v --title -O'
 alias less='less -R'
 alias logcat="perl -ple 's/\033.*?m//g; s/\07//g; s/\010//g; s/\015//g'"
@@ -95,6 +96,18 @@ git-merge-fix() {
 alias gg="git grep"
 alias ga="git ack"
 alias gga="group-git ack"
+
+function ggcpan () {
+    pushd ~/src > /dev/null 2>&1
+    group-git --no-page ff -q ; group-git -t cpan since-release --no-release; group-git --no-page -t cpan since-release -vm1
+    popd > /dev/null 2>&1
+}
+
+function ggnpm () {
+    pushd ~/src > /dev/null 2>&1
+    group-git -t npm since-release -m1
+    popd > /dev/null 2>&1
+}
 
 ## CVS
 if [ -x `which cmdaliaser 2> /dev/null` ]; then
@@ -190,29 +203,52 @@ alias realclear='perl -le "print q{ } for 0..999"'
 # node
 alias local-npm='local-npm --directory ~/.local-npm'
 alias nrun='time npm run'
+_nrun() {
+    local cur prev opts
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    commands="$(node -e 'console.log(Object.keys(require("./package.json").scripts).join("\n"))')"
+    COMPREPLY=($(compgen -W "${commands}" -- ${cur}))
+}
+complete -F _nrun nrun
+
+_gelp() {
+    local cur prev opts
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    commands="$(if [ ! -f .gelp-tasks ]; then gulp --tasks | grep -o '[\w-]+$' | sort -u > .gelp-tasks; fi; cat .gelp-tasks)"
+    COMPREPLY=($(compgen -W "${commands}" -- ${cur}))
+}
+complete -F _gelp gelp
+complete -F _gelp gulp
 
 ## Un-characterised
 
 alias sd='perl -MClass::Date -le "print Class::Date->new(\$_) for (@ARGV)" 2>/dev/null'
-
 alias prove='time prove -j4 --state=slow,save -l '
-
 alias module-starter='module-starter --mb --author="Ivan Wills" --email="ivan.wills@gmail.com"'
-
 alias ctags='ctags --exclude=blib --exclude=_build --exclude=Build --exclude=tmp'
-
 alias xcopy='xclip -selection clipboard'
 alias xpaste='xclip -out -selection clipboard'
-
 alias dietlog='chown www-data:www-data -R /tmp/diet*'
-
 alias home='perl -MClass::Date=now -le "system qq{cd \$ENV{HOME}/src; tar cjf home-} . now()->strftime(q{%Y-%m-%d}) . {q.tar.bz2 home}"'
-
 alias gitlogcount='git log | grep Author | perl -nle "(\$a) = /<([^>]+)>/; \$ENV{BLAH}{\$a}++; END { print join qq/\n/, map { sprintf qq/%37s => %d/, \$_, \$ENV{BLAH}{\$_} } sort { \$ENV{BLAH}{\$a} <=> \$ENV{BLAH}{\$b} } keys %{\$ENV{BLAH}} }"'
-
 alias hlist="hlist -e 'Build|_build|blib|META.yml|tags|.sw[pnox]\$'"
-
 alias perle='perl -MData::Dumper -MPath::Tiny -MJSON::XS=decode_json,encode_json -MYAML::XS=Dump,Load,DumpFile,LoadFile'
-
-
 alias aem='cd "/home/ivan/aem/AEM6.1" &&  java -Dhttp.proxyHost=localhost -Dhttp.proxyPort=4502 -Denv=dev -debug -Djava.awt.headless=true -XX:MaxPermSize=512M -XX:-UseSplitVerifier -Xnoagent -Xmx2048M -Xmx2048M -Djava.compiler=NONE -Dsling.run.modes=local,author,crx2  -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=30305 -jar aem6-author-p4502.jar -nofork -gui &'
+
+alias lux-storibooks="grep 'start-storybook --ci'        ~/dev/lux2/*/.vtide.yml | grep -o 'port\\s+70\\d+' | sort -n"
+alias lux-devservers="grep -P 'webpack(-dev-| )server? --config' ~/dev/lux2/*/.vtide.yml | grep -o 'port\\s+80\\d+' | sort -n"
+#alias eslint="eslint --config \"$([ -f ./.eslintrc ] && echo ./.eslintrc || ./configs/eslint.config.js)\""
+function eslint () {
+    ESLINT=eslint
+    CONFIG='./eslintrc'
+    if [ -f node_modules/.bin/eslint ]; then
+        ESLINT=node_modules/.bin/eslint
+    fi
+    if [ -f ./configs/eslint.config.js ]; then
+        CONFIG=./configs/eslint.config.js
+    fi
+    "${ESLINT}" --config "${CONFIG}"
+}
+alias jest="./node_modules/.bin/jest --config ./configs/jest.config.js --forceExit --detectOpenHandles -u --coverage --colors"

@@ -15,7 +15,7 @@
     s           = status
     st          = status
     br          = branch
-    sw          = switch
+    sw          = co -b
     co          = checkout
     pushb       = checkout
     popb        = checkout
@@ -39,6 +39,9 @@
     ll          = log --format=format:'%Cred%h%Creset %s %Cgreen%an <%ae>%C(red bold)%ai%Creset %C(blue bold)%d%Creset' --first-parent -n 20
     lme         = log --format=format:'%Cred%h%Creset %s %Cgreen%an %C(red bold)%ai%Creset %C(blue bold)%d%Creset'                       --author=ivan.wills --author='Ivan Wills'
     lpeople     = "!g() { git log --format=format:%an $@ | uniq | head; }; g"
+    lpeoplec    = "!g() { git log --format=format:%an $@ | sort | uniq -c | sort -n; }; g"
+    lemail      = "!g() { git log --format=format:%ae $@ | perl -ple '$_ = lc $_' | uniq | head; }; g"
+    lemailc     = "!g() { git log --format=format:%ae $@ | perl -ple '$_ = lc $_' | sort | uniq -c | sort -n; }; g"
     log1        = log --pretty=oneline
     log1me      = log --pretty=oneline                                                                                                   --author=ivan.wills --author='Ivan Wills'
     logdme      = log --decorate --graph                                                                                                 --author=ivan.wills --author='Ivan Wills'
@@ -54,10 +57,13 @@
     changes     = log --format=format:'        %s (%an)'
     pl          = pull
     ph          = push -u
+    pu          = push --no-verify -u
     push        = !echo try using "'git pu'" rather "'git push'"
+    sf          = !git stash && git ff && git stash pop
+    ssf         = !git add . && git stash && git ff && git stash pop
     show-root-folder = rev-parse --show-toplevel
     stashed     = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
-    update      = !git add . && git stash && git fetch origin && git merge --no-edit origin/master && git push && git stash pop && git reset HEAD
+    ud          = !git add . && git stash && git fetch origin && git merge --no-edit origin/master && git push && git stash pop && git reset HEAD
     up          = !git fetch origin && git merge --no-edit origin/master && git push
     merge-to    = merge
     url         = config remote.origin.url
@@ -73,6 +79,9 @@
     git         = "!g() { git $@; };  g"
     wait        = watch do -1 -f package.json -r -- git ff
     tag-sorted  = "!git tag | ansort | tail -n 40"
+    cp          = cherry-pick
+    clean-lux2  = branch-clean --min-age 120 --exclude master -r
+    clean-osg   = branch-clean --min-age 120 --exclude 'project_|release/|develop|master|osg_design|frog' -r
 #[receive]
 #    denyCurrentBranch = warn
 [core]
@@ -95,9 +104,13 @@
     helper = store
 [init]
     templatedir = /home/ivan/git-hooks/hooks
+	defaultBranch = master
 [helper]
     add-jira = true
 [helpers]
     add-jira = true
 [http]
     sslVerify = false
+#[merge "npm-merge-driver"]
+#	name = automatically merge npm lockfiles
+#	driver = npx npm-merge-driver merge %A %O %B %P
